@@ -1,0 +1,161 @@
+body, html {
+    height: 100%; /* Ensure body and html take full height of viewport */
+    font-family: Arial, sans-serif;
+    background-color: #94a8b1;
+    margin: 0;
+    padding: 0;
+    color: #333; 
+}
+
+.container {
+    /*max-width: 1200px; /* Increased max-width for a wider layout */
+    margin: 1% auto;
+    padding: 20px;
+    background-color: #dce3e4;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex; /* Use flexbox for layout */
+    /*height: 100%; /* Ensure container takes full height of viewport */
+}
+
+aside#sidebar {
+    width: 250px; /* Adjust sidebar width as needed */
+    background-color: #94a8b1;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+
+main#main-content {
+    width: 1000px;  
+    background-color: #ebf4f7;
+    margin-left: 20px;
+    border-radius: 8px;
+}
+
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: #eec56e;
+    color: #0e3632;
+}
+
+header img {
+    width: 100px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Ensure the sidebar nav takes full height */
+#sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Push the last ul element to the bottom */
+#sidebar-nav ul#setbottom {
+    margin-top: auto;
+    margin-bottom: 50px; /* Ensure a margin at the bottom */
+    background-color: #eec56e;
+}
+
+/* Remove bottom margin for the rest */
+#sidebar-nav ul {
+    margin-bottom: 0;
+}
+
+ 
+
+nav ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #00796b;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #004d40;
+}
+
+pre {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+code {
+    font-family: "Courier New", Courier, monospace;
+}
+
+h1, h2, h3 {
+    margin-top: 20px;
+}
+
+h2 {
+    border-bottom: 2px solid #00796b;
+    padding-bottom: 10px;
+    background-color: hsl(0, 41%, 74%);
+}
+
+.collapsible {
+    background-color: #00796b;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 18px;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.collapsible:hover {
+    background-color: #004d40;
+}
+
+.content   {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #dfeef3;
+    color: #333; 
+    border: 1px solid #00796b;
+    border-radius: 4px;
+    margin-top: 10px; 
+}
+
+.content   p {
+    padding: 10px;
+    margin-left: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack sidebar on top of main content */
+    }
+
+    aside#sidebar {
+        width: 100%; /* Full width sidebar in smaller screens */
+        margin-bottom: 10px; /* Optional: Add some spacing between sidebar and main content */
+    }
+
+    main#main-content {
+        width: calc(100% - 250px); /* Adjust based on sidebar width */
+        margin-left: 25px; /* Margin to push main content away from sidebar */
+    }
+}

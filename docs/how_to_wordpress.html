@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Git</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <aside id="sidebar"> </aside>
+
+    <main id="main-content">
+      <header> 
+        <h1>Wordpress</h1>
+      </header>
+      <nav>
+        <ul>
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#access">access </a></li>
+          <li><a href="#installation">installation </a></li>
+          <li><a href="#block"> block</a></li>
+          <li><a href="#database">database</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <!-- Collapsible sections -->
+        <div class="collapsible" id="overview">
+          <h1>Overview</h1>
+          <div class="content">
+            <h2>Wordpress is a Content Management System CMS</h2>
+            <p>la la la </p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <!-- Collapsible sections -->
+        <div class="collapsible" id="access">
+          <h1>access</h1>
+          <div class="content">
+            <h2>files</h2>
+            <p>the Files are in /var/www apache is configured in
+              sudo chmod -R 755 /var/www/html/wordpress/wp-content/themes/
+              sudo chown -R www-data:www-data /var/www/html/wordpress
+            </p>
+            <h2>adminstration login</h2>
+            <p>http://localhost/wp-admin</p>
+            <h2>database</h2>
+            <p>http://localhost/phpmyadmin/index.php?route=/table/sql&db=wp_beegarten&table=wp_posts</p>
+          </div>
+        </div>
+        <!-- Collapsible sections -->
+        <div class="collapsible" id="installation">
+          <h1>installation</h1>
+          <div class="content">
+            <h2>Theme</h2>
+            <p>la la la </p>
+          </div>
+        </div>
+
+        <div class="collapsible" id="block">
+          <h1>Block</h1>
+          <div class="content">
+            <h2>Theme</h2>
+            <p>la la la </p>
+          </div>
+        </div>
+        <div class="collapsible" id="database">
+          <h1>database</h1>
+          <div class="content">
+            <h2>Theme</h2>
+            <p>la la la </p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

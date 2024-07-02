@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Git</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <aside id="sidebar"> </aside>
+
+    <main id="main-content">
+      <header> 
+        <h1>Installation Commands</h1>
+      </header>
+      <nav>
+        <ul>
+          <li><a href="#overview">WEB Project installation Overview</a></li>
+          <li><a href="#nextjs">NEXT JS</a></li>
+          <li><a href="#django">Django</a></li>
+          <li><a href="#angular">Angular</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <!-- Collapsible sections -->
+        <div class="collapsible" id="overview">
+          <h1>WEB Project Overview</h1>
+          <div class="content">
+            <h2>Ressource allgemein</h2>
+            <h3>icones</h3>
+            <p>icones: <a href="https://remixicon.com/">https://remixicon.com/</a></p>
+            <p>ajout dans index.html: the CDN:</p>
+            <pre><code>&lt;link
+          href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
+          rel="stylesheet"
+          /&gt;</code></pre>
+            <p>exemple utilisation:</p>
+            <pre><code>&lt;i class="ri-delete-bin-6-fill ri-lg text-red-600"&gt;&lt;/i&gt;</code></pre>
+          </div>
+        </div>
+
+        <div class="collapsible" id="nextjs">
+          <h1>NEXT JS PROJECT</h1>
+          <div class="content">
+
+            <h2> ByteGrad/portfolio-website </h2>
+
+            <pre><code>
+
+
+# Portfolio Project (from ByteGrad) from GitHub (not tested)
+git clone https://github.com/ByteGrad/portfolio-website.git .
+npm install
+
+# Or project from scratch
+cd  ~/coding/learning-path/next-js
+mkdir my-portfolio
+npx create-next-app@latest .
+(YES option typescript,ESLint,TailwindCSS,app router)
+
+#start the app
+npm run dev
+
+#edit website
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+</code></pre>
+          </div>
+        </div>
+
+
+        <div class="collapsible" id="django">
+          <h1>DJANGO PROJECT</h1>
+          <div class="content">
+            <pre><code>sudo snap install postman
+snap help refresh
+conda deactivate
+source ./env/bin/activate
+
+# Project from GitHub
+git clone https://github.com/peter-evance/demo-efarm.git .
+
+# Or project from scratch
+django-admin startapp quickstart
+pip install -r requirements.txt
+django-admin startproject tutorial .
+
+python manage.py runserver
+python manage.py migrate
+python manage.py createsuperuser --username admin --email admin@example.com</code></pre>
+          </div>
+        </div>
+
+        <div class="collapsible" id="angular">
+          <h1>ANGULAR PROJECT</h1>
+          <div class="content">
+            <pre><code>sudo snap install postman
+snap help refresh
+conda deactivate
+source ./env/bin/activate
+
+# Project from GitHub
+git clone https://github.com/wdcoders/ng17-message-app .
+cd ng17-message-app
+npm install -D tailwindcss postcss autoprefixer
+npm install @ngxs/store --save
+npx tailwindcss init
+npm install ngx-toastr --save
+
+pip install -r requirements.txt
+npm start
+npm install
+npm build
+
+# Or project from scratch
+ng new nath_message_app
+npm install -D tailwindcss postcss autoprefixer
+npm install @ngxs/store --save
+# in requiremenets.txt:
+# tailwindcss postcss autoprefixer @ngxs/store
+npx tailwindcss init
+npm install ngx-toastr --save
+
+ng g c pages/messages
+ng g c pages/login
+ng g c pages/compose
+ng g c pages/register
+ng g c shared/layout/master
+ng g c shared/layout/header
+ng g c shared/layout/sidebar
+ng g c shared/layout/guest
+ng g c shared/component/card
+ng g c shared/component/message-item
+ng g c shared/component/to-input
+ng g p shared/pipes/date-ago
+
+# Add Route
+# in app.routes.ts
+# in app.component.html: &lt;outer-outlet&gt;
+# in master.component.html: &lt;app-header&gt; + &lt;outer-outlet&gt;
+
+# Add NGXS:
+# NGXS for Store
+npm install @ngxs/store --save
+# in app.config.ts: importProvidersFrom(NgxsModule.forRoot())]
+# in log von ng server:
+# 6:28:15 PM [vite] ✨ new dependencies optimized: @ngxs/store
+# 6:28:15 PM [vite] ✨ optimized dependencies changed. reloading
+
+# NGXS for Toastr
+npm install ngx-toastr --save
+# in style.css: @import 'ngx-toastr/toastr';
+
+ng serve -o
+
+# Unit test
+ng test
+
+# End to end test
+ng e2e</code></pre>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

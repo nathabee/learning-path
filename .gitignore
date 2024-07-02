@@ -1,0 +1,14 @@
+# repository accepted
+# docs
+# toolbox
+
+
+# Repository to ignore
+
+# Repository that are not finalized and should be ignored
+angular 
+app
+django
+next-js
+python
+wordpress
