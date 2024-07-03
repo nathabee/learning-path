@@ -13,14 +13,14 @@
         <aside id="sidebar"> </aside>
 
         <main id="main-content">
-            <header> 
+            <header>
                 <h1>Git Commands </h1>
             </header>
             <nav>
                 <ul>
                     <li><a href="#git-admin">Git admin</a></li>
                     <li><a href="#monorepository">Project without submodule monorepository</a></li>
-                    <li><a href="#multirepository">Project with Submodules</a></li> 
+                    <li><a href="#multirepository">Project with Submodules</a></li>
                 </ul>
             </nav>
             <div class="collapsible" id="git-admin">
@@ -41,21 +41,21 @@
             
             # Verify the update
             git config --global user.name</code></pre>
-            
+
                     <h2 id="update-email">2. Update Git Email</h2>
                     <pre><code># Set the Git email globally
             git config --global user.email "your.email@example.com"
             
             # Verify the update
             git config --global user.email</code></pre>
-            
+
                     <h2 id="update-remote">3. Update Remote GitHub Reference</h2>
                     <pre><code># Change the remote URL for a repository
             git remote set-url origin https://github.com/user/repo.git
             
             # Verify the update
             git remote -v</code></pre>
-            
+
                     <h2 id="generate-ssh-key">4. Generate SSH Key</h2>
                     <p>Generate a new SSH key pair for authentication:</p>
                     <pre><code># Generate a new SSH key pair
@@ -66,7 +66,7 @@
             
             # Add your SSH private key to the ssh-agent
             ssh-add ~/.ssh/id_ed25519</code></pre>
-            
+
                     <h2 id="add-ssh-key-github">5. Add SSH Key to GitHub</h2>
                     <p>To add your SSH key to your GitHub account:</p>
                     <pre><code># Copy the SSH key to your clipboard (Linux/macOS)
@@ -78,10 +78,11 @@
                     <ol>
                         <li>Navigate to <strong>Settings</strong> > <strong>SSH and GPG keys</strong>.</li>
                         <li>Click on <strong>New SSH key</strong>.</li>
-                        <li>Paste the copied SSH key into the <strong>Key</strong> field and give it a descriptive title.</li>
+                        <li>Paste the copied SSH key into the <strong>Key</strong> field and give it a descriptive
+                            title.</li>
                         <li>Click <strong>Add SSH key</strong>.</li>
                     </ol>
-            
+
                     <h2 id="update-authentication">6. Update Authentication Method</h2>
                     <p>To switch to SSH authentication for a repository:</p>
                     <pre><code># Change the remote URL to use SSH
@@ -91,32 +92,32 @@
             git remote -v</code></pre>
                 </div>
             </div>
-            
 
-                <div class="collapsible" id="monorepository">
-                    <h1>Git Commands for Monorepository</h1>
-                    <div class="content">
-                        <ul>
-                            <li><a href="#create-repo">Create Repository</a></li>
-                            <li><a href="#clone-repo">Clone Repository</a></li>
-                            <li><a href="#add-project">Add New Project</a></li>
-                            <li><a href="#work-project">Work on a Project</a></li>
-                            <li><a href="#commit-changes">Commit Changes</a></li>
-                            <li><a href="#clone-mono">Clone Monorepo</a></li>
-                            <li><a href="#directory-structure">Directory Structure</a></li>
-                        </ul>
-                        <hr>
-                        <h2 id="create-repo">1. Create the Monorepository on GitHub</h2>
-                        <p><strong>Create the Monorepository:</strong></p>
-                        <p>Go to GitHub and create a new repository called <code>mono-repo</code>.</p>
-                
-                        <h2 id="clone-repo">2. Clone the Monorepository Locally</h2>
-                        <pre><code># Clone the monorepository to your local machine
+
+            <div class="collapsible" id="monorepository">
+                <h1>Git Commands for Monorepository</h1>
+                <div class="content">
+                    <ul>
+                        <li><a href="#create-repo">Create Repository</a></li>
+                        <li><a href="#clone-repo">Clone Repository</a></li>
+                        <li><a href="#add-project">Add New Project</a></li>
+                        <li><a href="#work-project">Work on a Project</a></li>
+                        <li><a href="#commit-changes">Commit Changes</a></li>
+                        <li><a href="#clone-mono">Clone Monorepo</a></li>
+                        <li><a href="#directory-structure">Directory Structure</a></li>
+                    </ul>
+                    <hr>
+                    <h2 id="create-repo">1. Create the Monorepository on GitHub</h2>
+                    <p><strong>Create the Monorepository:</strong></p>
+                    <p>Go to GitHub and create a new repository called <code>mono-repo</code>.</p>
+
+                    <h2 id="clone-repo">2. Clone the Monorepository Locally</h2>
+                    <pre><code># Clone the monorepository to your local machine
                 git clone https://github.com/user/mono-repo
                 cd mono-repo</code></pre>
-                
-                        <h2 id="add-project">3. Add a New Project to the Monorepository</h2>
-                        <pre><code># Create a directory for the new project
+
+                    <h2 id="add-project">3. Add a New Project to the Monorepository</h2>
+                    <pre><code># Create a directory for the new project
                 mkdir projects/new-project
                 cd projects/new-project
                 
@@ -131,10 +132,11 @@
                 # Push the new project to the monorepository
                 git remote add origin https://github.com/user/mono-repo
                 git push origin main</code></pre>
-                
-                        <h2 id="work-project">4. Work on a Project</h2>
-                        <p>Navigate to the project's directory, make changes, and commit those changes within the monorepository.</p>
-                        <pre><code># Navigate to the project directory
+
+                    <h2 id="work-project">4. Work on a Project</h2>
+                    <p>Navigate to the project's directory, make changes, and commit those changes within the
+                        monorepository.</p>
+                    <pre><code># Navigate to the project directory
                 cd projects/new-project
                 
                 # Make changes, add them, and commit
@@ -143,78 +145,79 @@
                 
                 # Push the changes to the monorepository
                 git push origin main</code></pre>
-                
-                        <h2 id="commit-changes">5. Commit Changes in the Monorepository</h2>
-                        <p>After making changes in a project, you need to commit the changes in the monorepository.</p>
-                        <pre><code># Navigate back to the monorepository root
+
+                    <h2 id="commit-changes">5. Commit Changes in the Monorepository</h2>
+                    <p>After making changes in a project, you need to commit the changes in the monorepository.</p>
+                    <pre><code># Navigate back to the monorepository root
                 cd ../../
                 
                 # Add and commit the changes
                 git add projects/new-project
                 git commit -m "Update new project"
                 git push origin main</code></pre>
-                
-                        <h2 id="clone-mono">6. Clone the Monorepository</h2>
-                        <p>When someone clones the monorepository, they get all the projects within it.</p>
-                        <pre><code># Clone the monorepository
+
+                    <h2 id="clone-mono">6. Clone the Monorepository</h2>
+                    <p>When someone clones the monorepository, they get all the projects within it.</p>
+                    <pre><code># Clone the monorepository
                 git clone https://github.com/user/mono-repo
                 cd mono-repo</code></pre>
-                
-                        <h2 id="directory-structure">Example Directory Structure with .gitignore</h2>
-                        <p>Your project directory might look like this:</p>
-                        <pre><code>/path/to/mono-repo
+
+                    <h2 id="directory-structure">Example Directory Structure with .gitignore</h2>
+                    <p>Your project directory might look like this:</p>
+                    <pre><code>/path/to/mono-repo
                 |-- .gitignore          # Root .gitignore
                 |-- /projects
                     |-- /new-project
                         |-- .gitignore  # Project .gitignore</code></pre>
-                    </div>
                 </div>
-                
+            </div>
+
 
 
             <div class="collapsible" id="multirepository">
-            <h1>Git Commands for Project with Submodules</h1> 
-            <div class="content"> 
-                <ul>
-                    <li><a href="#create-repos">Create Repositories</a></li>
-                    <li><a href="#clone-repo">Clone Main Repository</a></li>
-                    <li><a href="#add-submodule">Add Submodule</a></li>
-                    <li><a href="#initialize-submodule">Initialize Submodules</a></li>
-                    <li><a href="#work-submodule">Work on Submodule</a></li>
-                    <li><a href="#commit-main">Commit in Main Repo</a></li>
-                    <li><a href="#clone-main">Clone with Submodules</a></li>
-                    <li><a href="#directory-structure">Directory Structure</a></li>
-                </ul>
-                <hr>
-                <h2 id="create-repos">1. Create the Main Repository and Submodule Repositories on GitHub</h2>
-                <h3>Creating Repositories:</h3>
-                <p><strong>Create the Main Repository:</strong></p>
-                <p>Go to GitHub and create a new repository called <code>main-repo</code>.</p>
-                <p><strong>Create the Submodule Repository:</strong></p>
-                <p>Similarly, create another repository called <code>new-submodule</code>.</p>
+                <h1>Git Commands for Project with Submodules</h1>
+                <div class="content">
+                    <ul>
+                        <li><a href="#create-repos">Create Repositories</a></li>
+                        <li><a href="#clone-repo">Clone Main Repository</a></li>
+                        <li><a href="#add-submodule">Add Submodule</a></li>
+                        <li><a href="#initialize-submodule">Initialize Submodules</a></li>
+                        <li><a href="#work-submodule">Work on Submodule</a></li>
+                        <li><a href="#commit-main">Commit in Main Repo</a></li>
+                        <li><a href="#clone-main">Clone with Submodules</a></li>
+                        <li><a href="#directory-structure">Directory Structure</a></li>
+                    </ul>
+                    <hr>
+                    <h2 id="create-repos">1. Create the Main Repository and Submodule Repositories on GitHub</h2>
+                    <h3>Creating Repositories:</h3>
+                    <p><strong>Create the Main Repository:</strong></p>
+                    <p>Go to GitHub and create a new repository called <code>main-repo</code>.</p>
+                    <p><strong>Create the Submodule Repository:</strong></p>
+                    <p>Similarly, create another repository called <code>new-submodule</code>.</p>
 
-                <h2 id="clone-repo">2. Clone the Main Repository Locally</h2>
-                <pre><code># Clone the main repository to your local machine
+                    <h2 id="clone-repo">2. Clone the Main Repository Locally</h2>
+                    <pre><code># Clone the main repository to your local machine
 git clone https://github.com/user/main-repo
 cd main-repo</code></pre>
 
-                <h2 id="add-submodule">3. Add a Submodule to the Main Repository</h2>
-                <pre><code># Add the submodule to the main repository
+                    <h2 id="add-submodule">3. Add a Submodule to the Main Repository</h2>
+                    <pre><code># Add the submodule to the main repository
 git submodule add https://github.com/user/new-submodule path/to/new-submodule
 
 # Commit the addition of the submodule
 git commit -m "Add new submodule"</code></pre>
 
-                <h2 id="initialize-submodule">4. Initialize and Update Submodules</h2>
-                <p>After adding submodules, you need to initialize and update them to ensure they are properly
-                    integrated into the main repository.</p>
-                <pre><code># Initialize and update submodules
+                    <h2 id="initialize-submodule">4. Initialize and Update Submodules</h2>
+                    <p>After adding submodules, you need to initialize and update them to ensure they are properly
+                        integrated into the main repository.</p>
+                    <pre><code># Initialize and update submodules
 git submodule update --init --recursive</code></pre>
 
-                <h2 id="work-submodule">5. Work on a Submodule</h2>
-                <p>To work on a submodule, navigate to the submodule's directory, make changes, and commit those changes
-                    within the submodule.</p>
-                <pre><code># Navigate to the submodule directory
+                    <h2 id="work-submodule">5. Work on a Submodule</h2>
+                    <p>To work on a submodule, navigate to the submodule's directory, make changes, and commit those
+                        changes
+                        within the submodule.</p>
+                    <pre><code># Navigate to the submodule directory
 cd path/to/new-submodule
 
 # Make changes, add them, and commit
@@ -224,10 +227,11 @@ git commit -m "Make changes to submodule"
 # Push the changes to the submodule repository
 git push origin main</code></pre>
 
-                <h2 id="commit-main">6. Commit Changes in the Main Repository</h2>
-                <p>After making changes in the submodule, you need to commit the updated submodule reference in the main
-                    repository.</p>
-                <pre><code># Navigate back to the main repository
+                    <h2 id="commit-main">6. Commit Changes in the Main Repository</h2>
+                    <p>After making changes in the submodule, you need to commit the updated submodule reference in the
+                        main
+                        repository.</p>
+                    <pre><code># Navigate back to the main repository
 cd ../../
 
 # Add and commit the updated submodule reference
@@ -235,26 +239,35 @@ git add path/to/new-submodule
 git commit -m "Update submodule reference"
 git push origin main</code></pre>
 
-                <h2 id="clone-main">7. Initialize Submodules When Cloning the Main Repository</h2>
-                <p>When someone clones the main repository, they need to initialize the submodules.</p>
-                <pre><code># Clone the main repository
+                    <h2 id="clone-main">7. Initialize Submodules When Cloning the Main Repository</h2>
+                    <p>When someone clones the main repository, they need to initialize the submodules.</p>
+                    <pre><code># Clone the main repository
 git clone https://github.com/user/main-repo
 cd main-repo
 
 # Initialize and update submodules
 git submodule update --init --recursive</code></pre>
 
-                <h2 id="directory-structure">Example Directory Structure with .gitignore</h2>
-                <p>Your project directory might look like this:</p>
-                <pre><code>/path/to/main-repo
+                    <h2 id="directory-structure">Example Directory Structure with .gitignore</h2>
+                    <p>Your project directory might look like this:</p>
+                    <pre><code>/path/to/main-repo
 |-- .gitignore          # Root .gitignore
 |-- /path/to/new-submodule
     |-- .gitignore      # Submodule .gitignore</code></pre>
-            </div>
+                </div>
             </div>
 
 
         </main>
+
+
+        <aside id="right-sidebar">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search...">
+                <button id="search-button">Search</button>
+            </div>
+            <div id="search-results"></div>
+        </aside>
     </div>
 
     <script src="script.js"></script>

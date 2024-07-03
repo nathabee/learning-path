@@ -159,3 +159,38 @@ h2 {
         margin-left: 25px; /* Margin to push main content away from sidebar */
     }
 }
+
+
+/* Right Sidebar */
+#right-sidebar {
+    width: 300px;
+    background: #f9f9f9;
+    padding: 20px;
+}
+
+.search-container {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+#search-input {
+    flex: 1;
+    padding: 5px;
+}
+
+#search-button {
+    padding: 5px 10px;
+}
+
+#search-results {
+    background: #fff;
+    border: 1px solid #ccc;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+#search-results p {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    margin: 0;
+}

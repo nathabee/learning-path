@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deploy on GitHub Pages</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <aside id="sidebar"></aside>
+
+        <main id="main-content">
+            <header>
+                <h1>How to Deploy on GitHub Pages</h1>
+            </header>
+
+            <div>
+                <!-- Collapsible sections -->
+                <div class="collapsible" id="steps-to-deploy">
+                    <h1>Steps to Deploy on GitHub Pages</h1>
+                    <div class="content">
+                        <h2>1. Create or Update Your Repository</h2>
+                        <p>Ensure your HTML files are in a GitHub repository. If they are under a <code>docs</code> directory, you can use that directory directly for GitHub Pages.</p>
+
+                        <h2>2. Configure GitHub Pages</h2>
+                        <ul>
+                            <li>Go to your repository on GitHub.</li>
+                            <li>Click on the <code>Settings</code> tab.</li>
+                            <li>Scroll down to the <code>Pages</code> section.</li>
+                            <li>In the <code>Source</code> dropdown, select the branch you want to use (usually <code>main</code> or <code>master</code>).</li>
+                            <li>If your HTML files are in the <code>docs</code> folder, select <code>/docs</code> folder.</li>
+                            <li>Click <code>Save</code>.</li>
+                        </ul>
+
+                        <h2>3. Access Your Site</h2>
+                        <p>After saving, GitHub will start building your site. Once the build is complete, you will see a URL where your site is published, usually in the format <code>https://username.github.io/repository-name/</code>.</p>
+                    </div>
+                </div>
+
+                <div class="collapsible" id="detailed-explanation">
+                    <h1>Detailed Explanation</h1>
+                    <div class="content">
+                        <h2>Single Page Limitation</h2>
+                        <p>GitHub Pages serves static content, which means it is suitable for hosting HTML, CSS, and JavaScript files without server-side processing. There is no inherent single-page limitation; you can host multi-page websites as long as they are purely static. Here’s how it works:</p>
+                        <ul>
+                            <li><strong>Static Content:</strong> HTML files, CSS files, images, and JavaScript files can be hosted and will be served directly to users' browsers.</li>
+                            <li><strong>Navigation:</strong> Your HTML files can link to each other using relative or absolute URLs. For example, if you have an <code>index.html</code> and an <code>about.html</code>, you can link between them like this:
+                                <pre><code>&lt;!-- index.html --&gt;
+&lt;a href="about.html"&gt;About&lt;/a&gt;
+
+&lt;!-- about.html --&gt;
+&lt;a href="index.html"&gt;Home&lt;/a&gt;</code></pre>
+                            </li>
+                        </ul>
+
+                        <h2>Relative Links</h2>
+                        <p>Ensure your links are relative to the current document to make navigation between pages smooth. Here’s an example of how you can structure your links:</p>
+                        <h3>Directory Structure:</h3>
+                        <pre><code>docs/
+├── index.html
+├── about.html
+├── contact.html</code></pre>
+
+                        <h3>Navigation Example:</h3>
+                        <pre><code>&lt;!-- index.html --&gt;
+&lt;a href="about.html"&gt;About&lt;/a&gt;
+&lt;a href="contact.html"&gt;Contact&lt;/a&gt;
+
+&lt;!-- about.html --&gt;
+&lt;a href="index.html"&gt;Home&lt;/a&gt;
+&lt;a href="contact.html"&gt;Contact&lt;/a&gt;
+
+&lt;!-- contact.html --&gt;
+&lt;a href="index.html"&gt;Home&lt;/a&gt;
+&lt;a href="about.html"&gt;About&lt;/a&gt;</code></pre>
+                    </div>
+                </div>
+
+                <div class="collapsible" id="advanced-configuration">
+                    <h1>Advanced Configuration</h1>
+                    <div class="content">
+                        <p>If you need more advanced features, such as custom domains or Jekyll processing, GitHub Pages supports those as well. For a basic static site, the steps above are sufficient.</p>
+                    </div>
+                </div>
+
+                <div class="collapsible" id="summary">
+                    <h1>Summary</h1>
+                    <div class="content">
+                        <ol>
+                            <li>Ensure your repository is public change from private to public in settings, change visibility</li>
+                            <li>Ensure your HTML files are in a repository (preferably in a <code>docs</code> folder if you choose to use that as the source).</li>
+                            <li>Configure GitHub Pages in the repository settings to use the <code>main</code> branch and the <code>docs</code> folder (if applicable).</li>
+                            <li>Access your website via the provided <code>github.io</code> URL.</li>
+                        </ol>
+                        <p>This setup will allow you to navigate between multiple HTML files hosted on GitHub Pages without any issues, as long as they are all static files.</p>
+                    </div>
+                </div>
+            </div>
+
+            
+        </main>
+
+
+        <aside id="right-sidebar">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search...">
+                <button id="search-button">Search</button>
+            </div>
+            <div id="search-results"></div>
+        </aside>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
