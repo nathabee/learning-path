@@ -7,6 +7,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const searchInput = document.getElementById('search-input');
     const searchButton = document.getElementById('search-button');
     const resultsContainer = document.getElementById('search-results');
+
+    const mainContent = document.getElementById('main-content');  
+
+    const searchButtonIndex = document.getElementById('search-button-index');
  
 
     
@@ -20,10 +24,17 @@ document.addEventListener('DOMContentLoaded', function () {
             <a href="https://github.com/nathabee">
             <img src="logo.png" alt="Logo">
             </a>
-            <nav>
+            <nav id="sidebar-nav">
         `;
         
         let sidebarContentEnde = "";
+
+
+    // Sort files by sidebarPosition
+    // Convert sidebarposition to number and sort
+    filesMetadata.sort((a, b) => parseInt(a.sidebarposition) - parseInt(b.sidebarposition));
+
+
 
         filesMetadata.forEach((file, index) => {
             if (file.filename === "debug.html") {
@@ -38,16 +49,26 @@ document.addEventListener('DOMContentLoaded', function () {
         sidebar.innerHTML = sidebarContent;
     }
 
+
+  
+
+
+
  
     // Function to handle search
     function handleSearch() {
         // Check if search input value exists
         if (searchInput && searchInput.value) {
             const searchTerm = searchInput.value.toLowerCase();
-            const searchResults = files.filter(file =>
+            const searchResults = filesMetadata.filter(file =>
                 file.description.toLowerCase().includes(searchTerm)
             );
             displaySearchResults(searchResults);
+        }
+        else {
+
+        // Ensure the function to display last modified files is called
+        console.error('handleSearch called but searchInput empty or do not exist');
         }
     }
 
@@ -61,8 +82,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Check if search button exists before adding event listener
-    if (searchButton) {
-        searchButton.addEventListener('click', handleSearch);
+    if (searchButtonIndex) {
+        searchButtonIndex.addEventListener('click', handleSearch);
     }
 
     // Generate sidebar HTML on page load
@@ -133,7 +154,63 @@ document.addEventListener('DOMContentLoaded', function () {
 
     displayLastModifiedFiles(filesMetadata.slice(0, 10));
     /**************************************************** */
-    
-});
+     
+  
+  // Check if search button exists before adding event listener
+  if (searchButton) {
+    searchButton.addEventListener('click', () => {
+      const searchTerm = searchInput.value.toLowerCase().trim();
+      if (!searchTerm) {
+        return;
+      }
+
+      // Clear previous highlights
+      const highlightedElements = document.querySelectorAll('.highlight');
+      highlightedElements.forEach(el => {
+        el.innerHTML = el.textContent;  // Restore original text
+        el.classList.remove('highlight');
+      });
+
+      // Search through the content and highlight matches
+      let resultsHTML = '';
+      const sections = mainContent.querySelectorAll('.collapsible .content');
+      sections.forEach(section => {
+        const paragraphs = section.querySelectorAll('p, h1, h2, h3, pre, code');
+        paragraphs.forEach(paragraph => {
+          const lowerText = paragraph.textContent.toLowerCase();
+          const index = lowerText.indexOf(searchTerm);
+          if (index !== -1) {
+            const originalText = paragraph.textContent;
+            const beforeMatch = originalText.slice(0, index);
+            const match = originalText.slice(index, index + searchTerm.length);
+            const afterMatch = originalText.slice(index + searchTerm.length);
+
+            paragraph.innerHTML = `${beforeMatch}<span class="highlight">${match}</span>${afterMatch}`;
+            resultsHTML += `<li data-section-id="${section.parentElement.id}" data-paragraph-index="${index}">${beforeMatch}<span class="highlight">${match}</span>${afterMatch}</li>`;
+          }
+        });
+      });
+
+      resultsContainer.innerHTML = resultsHTML ? `<ul>${resultsHTML}</ul>` : '<p>No results found</p>';
+
+      // Add click event to search results
+      const resultItems = resultsContainer.querySelectorAll('li');
+      resultItems.forEach(item => {
+        item.addEventListener('click', () => {
+          const sectionId = item.getAttribute('data-section-id');
+          const paragraphIndex = item.getAttribute('data-paragraph-index');
+          const section = document.getElementById(sectionId);
+
+          // Open the collapsible section
+          section.querySelector('.content').style.display = 'block';
+
+          // Scroll to the highlighted paragraph
+          const highlightedParagraph = section.querySelectorAll('p, h1, h2, h3, pre, code')[paragraphIndex];
+          highlightedParagraph.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+      });
+    });
+  }
+      });  
 
  

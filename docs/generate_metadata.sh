@@ -17,8 +17,17 @@ for file in *.html; do
     # Escape special characters in description
     description=$(echo "$description" | sed 's/"/\\"/g')
 
+    # Extract the keywords from the <meta name="keywords" content=""> tag
+    keywords=$(grep -oP '(?<=<meta name="keywords" content=").*?(?=">)' "$file" | head -1)
+
+    # Extract the keywords from the <meta name="keywords" content=""> tag
+    sidebarposition=$(grep -oP '(?<=<meta name="sidebarposition" content=").*?(?=">)' "$file" | head -1)
+
+    keywords=$(echo "$keywords" | sed 's/"/\\"/g')
+    sidebarposition=$(echo "$sidebarposition" | sed 's/"/\\"/g')
+
     # Format data as JavaScript object and append to metadata.js
-    echo "    { filename: \"$file\", description: \"$description\", lastModified: \"$lastModified\" }," >> $OUTPUT_FILE
+    echo "    { filename: \"$file\", description: \"$description\", keywords: \"$keywords\", sidebarposition: \"$sidebarposition\", lastModified: \"$lastModified\" }," >> $OUTPUT_FILE
 done
 
 # End of metadata.js content

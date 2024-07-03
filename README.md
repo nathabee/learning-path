@@ -9,7 +9,7 @@ Welcome to my Learning Path repository! This repository serves as a record of my
 
 ## Documentation
 
-The documentation for my learning path is organized and available within the `/docs` directory. You can explore the different topics I've covered by navigating to the [Documentation Index](https://github.com/nathabee/learning-path/blob/main/docs/index.html).
+The documentation for my learning path is organized and available within the `/docs` directory. You can explore the different topics I've covered by navigating to the [Documentation Index](https://nathabee.github.io/learning-path/index.html).
 
 ## Topics Covered
 
