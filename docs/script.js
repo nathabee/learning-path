@@ -1,40 +1,39 @@
+// Import the precomputed metadata
+import filesMetadata from './metadata.js';
+
 document.addEventListener('DOMContentLoaded', function () { 
+
     const sidebar = document.getElementById('sidebar');
     const searchInput = document.getElementById('search-input');
     const searchButton = document.getElementById('search-button');
     const resultsContainer = document.getElementById('search-results');
  
 
- 
-    // Array of file names and descriptions
-    const files = [
-        { filename: 'index.html', description: 'Home' },
-        { filename: 'how_to_git.html', description: 'How to Git' },
-        { filename: 'how_to_deploy_github_page.html', description: 'How to deploy Github page' },
-        { filename: 'how_to_install.html', description: 'How to Install' },
-        { filename: 'how_to_nextjs.html', description: 'How to Next JS' },
-        { filename: 'how_to_wordpress.html', description: 'How to Wordpress' },
-        { filename: 'debug.html', description: 'DEBUGGING' }
-    ];
+    
 
+
+    /**************************************************** */
     // Function to generate sidebar HTML from files array
     function generateSidebarHTML() {
         // Generate sidebar content
         let sidebarContent = `
-            <a href="https://github.com/nathawe">
+            <a href="https://github.com/nathabee">
             <img src="logo.png" alt="Logo">
             </a>
             <nav>
         `;
         
-        files.forEach((file, index) => {
-            if (file.description === "DEBUGGING") {
-                sidebarContent += `<ul id="setbottom"><li><a href="${file.filename}">${file.description}</a></li></ul>`;
+        let sidebarContentEnde = "";
+
+        filesMetadata.forEach((file, index) => {
+            if (file.filename === "debug.html") {
+                sidebarContentEnde += `<ul id="setbottom"><li><a href="${file.filename}">${file.description}</a></li></ul>`;
             } else {
                 sidebarContent += `<ul><li><a href="${file.filename}">${file.description}</a></li></ul>`;
             }
         });
 
+        sidebarContent += sidebarContentEnde;
         sidebarContent += `</nav>`;
         sidebar.innerHTML = sidebarContent;
     }
@@ -70,6 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
     generateSidebarHTML();
 
 
+    /**************************************************** */
     // Initialize collapsible sections
     var coll = document.querySelectorAll('.collapsible');
     coll.forEach(function (item) {
@@ -85,6 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
  
 
+    /**************************************************** */
     // Add event listeners to links inside the main-content navigation
     var navLinks = document.querySelectorAll('#main-content nav ul li a');
     navLinks.forEach(function (link) {
@@ -103,6 +104,36 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
+
+
+    /**************************************************** */
+    // Function to get the last modified date of a file
+
+
+ 
+    // Function to display last modified files in HTML
+    function displayLastModifiedFiles(modifiedFiles) {
+        const listContainer = document.getElementById('last-modified-files');
+        if (!listContainer) return;
+
+        let html = '<ul>';
+        modifiedFiles.forEach(file => {
+            html += `<li><a href="${file.filename}">${file.description}</a> - ${file.lastModified}</li>`;
+        });
+        html += '</ul>';
+        listContainer.innerHTML = html;
+    }
+
+    // Ensure the function to display last modified files is called
+    console.log('DOMContentLoaded event fired');
+
+    // Sort files by last modified date (descending) and display
+    filesMetadata.sort((a, b) => new Date(b.lastModified) - new Date(a.lastModified));
+    console.log('Files sorted by last modified date:', filesMetadata);
+
+    displayLastModifiedFiles(filesMetadata.slice(0, 10));
+    /**************************************************** */
+    
 });
 
  

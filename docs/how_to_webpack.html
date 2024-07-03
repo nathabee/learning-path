@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Use Webpack</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <aside id="sidebar"></aside>
+
+    <main id="main-content">
+      <header>
+        <h1>Webpack</h1>
+      </header>
+      <nav>
+        <ul>
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#why-use-webpack">Why Use Webpack</a></li>
+          <li><a href="#installation">Installation</a></li>
+          <li><a href="#basic-setup">Basic Setup</a></li>
+          <li><a href="#loaders">Loaders</a></li>
+          <li><a href="#plugins">Plugins</a></li>
+          <li><a href="#dev-server">Dev Server</a></li>
+          <li><a href="#advanced-configuration">Advanced Configuration</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <!-- Collapsible sections -->
+        <div class="collapsible" id="overview">
+          <h1>Overview</h1>
+          <div class="content">
+            <h2>What is Webpack?</h2>
+            <p>Webpack is a powerful module bundler for JavaScript applications. It takes modules with dependencies and generates static assets representing those modules.</p>
+          </div>
+        </div>
+
+        <div class="collapsible" id="why-use-webpack">
+          <h1>Why Use Webpack?</h1>
+          <div class="content">
+            <h2>Key Benefits</h2>
+            <p>Webpack offers numerous benefits including module bundling, code splitting, asset management, and more. It helps optimize your web applications by managing dependencies and minimizing the code size.</p>
+
+            <h2>When do you need Webpack , error "can not use import statement outside a module"</h2>
+            <p>The issue you're encountering with the import statement outside a module is because you're trying to use import directly in a script that's not being treated as a module. To resolve this for a browser environment (like GitHub Pages), where you cannot directly use ES6 module syntax without additional setup, you can use WebPack</p>
+
+        </div>
+        </div>
+
+        <div class="collapsible" id="installation">
+          <h1>Installation</h1>
+          <div class="content">
+            <h2>Installing Webpack</h2>
+            <p>To install Webpack, you need Node.js and npm installed on your system. Run the following command to install Webpack and Webpack CLI globally:</p>
+            <pre><code>npm install -g webpack webpack-cli</code></pre>
+            <p>Alternatively, you can install them as dev dependencies in your project:</p>
+            <pre><code>npm install --save-dev webpack webpack-cli</code></pre>
+          </div>
+        </div>
+
+        <div class="collapsible" id="basic-setup">
+          <h1>Basic Setup</h1>
+          <div class="content">
+            <h2>Project Structure</h2>
+            <p>Create a basic project structure with the following files:</p>
+            <pre><code>.
+├── dist
+│   └── index.html
+├── src
+│   └── index.js
+└── webpack.config.js</code></pre>
+            <h2>webpack.config.js</h2>
+            <p>Here's a basic configuration for Webpack:</p>
+            <pre><code>const path = require('path');
+
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  },
+  mode: 'development'
+};</code></pre>
+          </div>
+        </div>
+
+        <div class="collapsible" id="loaders">
+          <h1>Loaders</h1>
+          <div class="content">
+            <h2>Using Loaders</h2>
+            <p>Loaders allow you to preprocess files as you import or load them. To use Babel for transpiling JavaScript, install the necessary packages:</p>
+            <pre><code>npm install --save-dev babel-loader @babel/core @babel/preset-env</code></pre>
+            <h2>webpack.config.js</h2>
+            <p>Add the following module rules to your Webpack configuration:</p>
+            <pre><code>module: {
+  rules: [
+    {
+      test: /\.js$/,
+      exclude: /node_modules/,
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-env']
+        }
+      }
+    }
+  ]
+}</code></pre>
+          </div>
+        </div>
+
+        <div class="collapsible" id="plugins">
+          <h1>Plugins</h1>
+          <div class="content">
+            <h2>Using Plugins</h2>
+            <p>Plugins are used to perform a wider range of tasks like bundle optimization, asset management, and injection of environment variables.</p>
+            <h2>Installing HTML Webpack Plugin</h2>
+            <p>Install the HTML Webpack Plugin:</p>
+            <pre><code>npm install --save-dev html-webpack-plugin</code></pre>
+            <h2>webpack.config.js</h2>
+            <p>Add the plugin to your Webpack configuration:</p>
+            <pre><code>const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+  // ... other configurations ...
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html'
+    })
+  ]
+};</code></pre>
+          </div>
+        </div>
+
+        <div class="collapsible" id="dev-server">
+          <h1>Dev Server</h1>
+          <div class="content">
+            <h2>Setting Up Webpack Dev Server</h2>
+            <p>The Webpack Dev Server provides you with a simple web server and the ability to use live reloading.</p>
+            <h2>Installation</h2>
+            <pre><code>npm install --save-dev webpack-dev-server</code></pre>
+            <h2>webpack.config.js</h2>
+            <p>Add the following configuration to your Webpack config:</p>
+            <pre><code>devServer: {
+  contentBase: './dist',
+  hot: true
+}</code></pre>
+            <h2>Package.json</h2>
+            <p>Add a script to your package.json to start the dev server:</p>
+            <pre><code>"scripts": {
+  "start": "webpack serve --open"
+}</code></pre>
+          </div>
+        </div>
+
+        <div class="collapsible" id="advanced-configuration">
+          <h1>Advanced Configuration</h1>
+          <div class="content">
+            <h2>Code Splitting</h2>
+            <p>Code splitting allows you to split your code into various bundles which can then be loaded on demand or in parallel.</p>
+            <h2>webpack.config.js</h2>
+            <pre><code>module.exports = {
+  // ... other configurations ...
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
+  },
+};</code></pre>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <aside id="right-sidebar">
+      <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search...">
+        <button id="search-button">Search</button>
+      </div>
+      <div id="search-results"></div>
+    </aside>
+  </div>
+  <script src="bundle.js"></script>
+</body>
+
+</html>
