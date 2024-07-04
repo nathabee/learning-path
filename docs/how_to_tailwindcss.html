@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Use Tailwind CSS</title>
+    <meta name="keywords" content="Tailwind CSS, CSS framework, installation, configuration">  
+    <meta name="sidebarposition" content="10">  
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <aside id="sidebar"> </aside>
+
+        <main id="main-content">
+            <header>
+                <h1>Tailwind CSS Guide</h1>
+            </header>
+            <nav>
+                <ul>
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#installation">Installation</a></li>
+                    <li><a href="#configuration">Configuration</a></li>
+                    <li><a href="#usage">Usage</a></li>
+                </ul>
+            </nav>
+            <div class="collapsible" id="overview">
+                <h1>Overview</h1>
+                <div class="content">
+                    <p>Tailwind CSS is a utility-first CSS framework for building custom designs without writing traditional CSS. It provides low-level utility classes that let you compose complex designs directly in your HTML.</p>
+                    <p>Key features include:</p>
+                    <ul>
+                        <li>Utility-first approach</li>
+                        <li>Highly customizable with configuration</li>
+                        <li>Responsive design support</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="collapsible" id="installation">
+                <h1>Installation</h1>
+                <div class="content">
+                    <p>To install Tailwind CSS, you can use npm or yarn:</p>
+                    <pre><code># Using npm
+npm install tailwindcss
+
+# Using yarn
+yarn add tailwindcss</code></pre>
+                </div>
+            </div>
+
+            <div class="collapsible" id="configuration">
+                <h1>Configuration</h1>
+                <div class="content">
+                    <p>After installing Tailwind CSS, you need to configure it:</p>
+                    <pre><code># Create a Tailwind configuration file (if not already present)
+npx tailwindcss init</code></pre>
+                    <p>This command generates a `tailwind.config.js` file where you can customize various aspects of Tailwind CSS, such as colors, fonts, breakpoints, etc.</p>
+
+                <h2>Tailwind CSS Configuration</h2> 
+                    <p>To customize Tailwind CSS, you can modify the `tailwind.config.js` file:</p>
+                    <pre><code># Create a Tailwind configuration file
+npx tailwindcss init</code></pre>
+                    <p>This command generates a `tailwind.config.js` file where you can customize various aspects of Tailwind CSS, such as colors, fonts, breakpoints, etc.</p>
+
+                    <p>Example of `tailwind.config.js`:</p>
+                    <pre><code>module.exports = {
+  purge: [],
+  darkMode: false, // or 'media' or 'class'
+  theme: {
+    extend: {
+      colors: {
+        'primary': {
+          'light': '#8fc7c3',
+          'DEFAULT': '#00796b',
+        },
+        'secondary': {
+          'light': '#fadea1',
+          'DEFAULT': '#928974',
+        },
+        'tertiary': {
+          'light': '#eba5a5',
+          'DEFAULT': '#700606',
+        },
+        'highlight': '#ffff00',
+      },
+    },
+  },
+  variants: {
+    extend: {},
+  },
+  plugins: [],
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="collapsible" id="usage">
+                <h1>Usage</h1>
+                <div class="content">
+                    <p>Once installed and configured, you can start using Tailwind CSS classes in your HTML:</p>
+                    <pre><code>&lt;div class="bg-blue-500 text-white p-4"&gt;
+    &lt;p class="font-bold"&gt;Tailwind CSS Example&lt;/p&gt;
+    &lt;p&gt;Easy to use and customize.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+                    <p>This example applies a blue background, white text, padding, and bold font to a div element.</p>
+                </div>
+            </div>
+
+        </main>
+
+        <aside id="right-sidebar">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search...">
+                <button id="search-button">Search</button>
+            </div>
+            <div id="search-results"></div>
+        </aside>
+    </div>
+    <script src="bundle.js"></script>
+
+</body>
+
+</html>

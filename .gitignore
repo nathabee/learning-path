@@ -4,6 +4,7 @@
 
 
 # Repository to ignore
+ignore
 
 # Repository that are not finalized and should be ignored
 angular 

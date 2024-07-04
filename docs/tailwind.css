@@ -1,0 +1,153 @@
+/* docs/tailwind.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    @layer base {
+      :root {
+        --primary-color-light: #6CB2B8;
+        /* Light teal */
+        --primary-color: #2C7A7B;
+        /* Teal */
+        --secondary-color-light: #F2CC8F;
+        /* Light yellow */
+        --secondary-color: #B48E65;
+        /* Brownish */
+        --tertiary-color-light: #EAA9A9;
+        /* Light red */
+        --tertiary-color: #8F3E3E;
+        /* Dark red */
+        --highlight-color: #FFD700;
+        /* Gold */
+        --black: #333333;
+        /* Dark gray */
+        --white: #FFFFFF;
+        /* White */
+      }
+
+    }
+
+  }
+
+  h1 {
+    @apply text-3xl font-bold mb-4;
+  }
+
+  h2 {
+    @apply text-xl font-semibold mb-2 border-b-2 pb-2 bg-tertiary-color-light border-primary-color;
+  }
+
+  h3 {
+    @apply text-lg font-medium;
+  }
+
+  body {
+    @apply bg-primary-color text-tertiary-color font-sans;
+  }
+
+  .container {
+    @apply m-4 p-4 bg-secondary-color rounded-lg shadow-lg flex;
+  }
+
+  #sidebar {
+    @apply w-64 bg-primary-color-light p-4 rounded-lg;
+  }
+
+  #main-content {
+    @apply flex-1 bg-primary-color-light ml-4 p-4 rounded-lg min-w-[350px];
+  }
+
+  #right-sidebar {
+    @apply w-64 bg-primary-color-light p-4 rounded-lg;
+  }
+
+
+  /* Custom style for #sidebar-nav ul#setbottom */
+  #sidebar-nav ul#setbottom {
+    @apply mt-auto mb-10 bg-highlight-color;
+    /* Use Tailwind utility classes for margin */
+  }
+
+  header {
+    @apply text-center mb-4 bg-secondary-color-light text-primary-color py-3 rounded-lg;
+  }
+
+  nav ul {
+    @apply list-none p-0;
+  }
+
+  nav ul li {
+    @apply block mb-2 ml-6;
+  }
+
+  nav ul li a {
+    @apply no-underline text-primary-color font-bold mr-12 hover:text-tertiary-color;
+  }
+
+  pre {
+    @apply bg-black text-white p-4 rounded overflow-x-auto my-4;
+  }
+
+  code {
+    @apply font-mono;
+  }
+
+  .collapsible {
+    @apply bg-primary-color-light text-white cursor-pointer p-2 w-full border text-left outline-none text-lg rounded my-2 hover:bg-primary-color;
+  }
+
+  .content {
+    @apply p-4 hidden overflow-hidden bg-gray-100 text-tertiary-color border rounded my-2;
+  }
+
+  .search-container {
+    @apply flex mb-4;
+  }
+
+  #search-input {
+    @apply flex-1 p-2;
+  }
+
+  #search-button {
+    @apply p-2 bg-primary-color text-white ml-2;
+  }
+
+  #search-results {
+    @apply bg-tertiary-color-light border max-h-96 overflow-y-auto;
+  }
+
+  .highlight {
+    @apply bg-highlight-color;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      @apply flex-col;
+    }
+
+    #sidebar {
+      @apply w-full mb-4;
+    }
+
+    #main-content {
+      @apply w-full ml-0;
+    }
+  }
+
+
+  /* Media query for larger screens */
+  @media (min-width: 1024px) {
+    .container {
+      @apply space-x-4;
+      /* Adds horizontal space between flex items */
+    }
+
+    #main-content {
+      @apply mr-4;
+      /* Adds margin to the right of main-content */
+    }
+  }
+
+}
