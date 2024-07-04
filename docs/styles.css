@@ -1,44 +1,63 @@
+:root {
+    --primary-color-light:  #8fc7c3;
+    --primary-color:  #00796b;
+    --secondary-color-light:  #fadea1;
+    --secondary-color:   #928974;
+    --tertiary-color-light:  #eba5a5;
+    --tertiary-color: #700606;
+    --highlight-color: #ffff00;
+    --black: #070606;
+    --white: #ffffff;
+}
+
+/*:root {
+    --primary-color-light: #94a8b1;
+    --primary-color: #00796b;
+    --secondary-color-light: #eec56e;
+    --secondary-color: #dce3e4;
+    --tertiary-color-light: #ebf4f7;
+    --tertiary-color: #333;
+    --highlight-color: yellow;
+}*/
+
 body, html {
     height: 100%; /* Ensure body and html take full height of viewport */
     font-family: Arial, sans-serif;
-    background-color: #94a8b1;
+    background-color: var(--primary-color-light);
     margin: 0;
     padding: 0;
-    color: #333; 
+    color: var(--tertiary-color);
 }
 
 .container {
-    /*max-width: 1200px; /* Increased max-width for a wider layout */
     margin: 1% auto;
     padding: 20px;
-    background-color: #dce3e4;
+    background-color: var(--secondary-color);
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: flex; /* Use flexbox for layout */
-    /*height: 100%; /* Ensure container takes full height of viewport */
 }
 
 aside#sidebar {
     width: 250px; /* Adjust sidebar width as needed */
-    background-color: #94a8b1;
+    background-color: var(--primary-color-light);
     padding: 20px;
     border-radius: 8px;
 }
 
-
 main#main-content {
-    width: 1000px;  
-    background-color: #ebf4f7;
+    flex: 1;
+    background-color: var(--primary-color-light);
     margin-left: 20px;
     border-radius: 8px;
+    min-width: 350px;
 }
-
 
 header {
     text-align: center;
     margin-bottom: 20px;
-    background-color: #eec56e;
-    color: #0e3632;
+    background-color: var(--secondary-color-light );
+    color: var(--primary-color);
 }
 
 header img {
@@ -61,7 +80,7 @@ nav ul {
 #sidebar-nav ul#setbottom {
     margin-top: auto;
     margin-bottom: 50px; /* Ensure a margin at the bottom */
-    background-color: #eec56e;
+    background-color: var(--secondary-color-light);
 }
 
 /* Remove bottom margin for the rest */
@@ -69,26 +88,26 @@ nav ul {
     margin-bottom: 0;
 }
 
- 
-
 nav ul li {
-    display: inline;
-    margin-right: 15px;
+    display: block; /* Changed to block for better stacking in small screens */
+    margin-bottom: 10px; /* Added margin-bottom for spacing */
+    margin-left: 15%;
 }
 
 nav ul li a {
     text-decoration: none;
-    color: #00796b;
+    color: var(--primary-color);
     font-weight: bold;
+    margin-right:  50px;
 }
 
 nav ul li a:hover {
-    color: #004d40;
+    color: var(--tertiary-color);
 }
 
 pre {
-    background-color: #333;
-    color: #fff;
+    background-color: var(--black);
+    color: var(--white);
     padding: 10px;
     border-radius: 4px;
     overflow-x: auto;
@@ -104,13 +123,13 @@ h1, h2, h3 {
 }
 
 h2 {
-    border-bottom: 2px solid #00796b;
+    border-bottom: 2px solid var(--primary-color);
     padding-bottom: 10px;
-    background-color: hsl(0, 41%, 74%);
+    background-color:var(--tertiary-color-light);
 }
 
 .collapsible {
-    background-color: #00796b;
+    background-color: var(--primary-color-light);
     color: white;
     cursor: pointer;
     padding: 10px;
@@ -121,51 +140,35 @@ h2 {
     font-size: 18px;
     border-radius: 4px;
     margin-top: 10px;
+    border: 1px solid  var(--primary-color);
 }
 
 .collapsible:hover {
-    background-color: #004d40;
+    background-color: var(--primary-color);
 }
 
-.content   {
+.content {
     padding: 0 18px;
     display: none;
     overflow: hidden;
     background-color: #dfeef3;
-    color: #333; 
-    border: 1px solid #00796b;
+    color: var(--tertiary-color);
+    border: 1px solid var(--primary-color);
     border-radius: 4px;
-    margin-top: 10px; 
+    margin-top: 10px;
 }
 
-.content   p {
+.content p {
     padding: 10px;
     margin-left: 10px;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column; /* Stack sidebar on top of main content */
-    }
-
-    aside#sidebar {
-        width: 100%; /* Full width sidebar in smaller screens */
-        margin-bottom: 10px; /* Optional: Add some spacing between sidebar and main content */
-    }
-
-    main#main-content {
-        width: calc(100% - 250px); /* Adjust based on sidebar width */
-        margin-left: 25px; /* Margin to push main content away from sidebar */
-    }
-}
-
-
 /* Right Sidebar */
 #right-sidebar {
     width: 300px;
-    background: #f9f9f9;
+    background:var(--primary-color-light);
     padding: 20px;
+    margin-left: 40px;
 }
 
 .search-container {
@@ -183,7 +186,7 @@ h2 {
 }
 
 #search-results {
-    background: #fff;
+    background: var(--tertiary-color-light);
     border: 1px solid #ccc;
     max-height: 400px;
     overflow-y: auto;
@@ -196,5 +199,22 @@ h2 {
 }
 
 .highlight {
-    background-color: yellow;
-  }
+    background-color: var(--highlight-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack sidebar on top of main content */
+    }
+
+    aside#sidebar {
+        width: 100%; /* Full width sidebar in smaller screens */
+        margin-bottom: 10px; /* Optional: Add some spacing between sidebar and main content */
+    }
+
+    main#main-content {
+        width: 100%; /* Full width for main content in smaller screens */
+        margin-left: 0; /* Remove left margin */
+    }
+}
