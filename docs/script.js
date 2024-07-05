@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
     /**************************************************** */
     // Function to generate sidebar HTML from files array
     function generateSidebarHTML() {
+        const currentPath = window.location.pathname;
         // Generate sidebar content
         let sidebarContent = `
             <a href="https://github.com/nathabee">
@@ -37,10 +38,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
         filesMetadata.forEach((file, index) => {
-            if (file.filename === "debug.html") {
-                sidebarContentEnde += `<ul id="setbottom"><li><a href="${file.filename}">${file.description}</a></li></ul>`;
+            const isActive = currentPath.includes(file.filename) ? 'active-link' : '';
+            if (isActive === "active-link") {
+
+                sidebarContent += `<ul id="active-link"><li><a href="${file.filename}"  ">${file.description}</a></li></ul>`;
+            }
+            else if (file.filename === "debug.html") {
+                sidebarContentEnde += `<ul id="setbottom"><li><a href="${file.filename}"  ">${file.description}</a></li></ul>`;
             } else {
-                sidebarContent += `<ul><li><a href="${file.filename}">${file.description}</a></li></ul>`;
+                sidebarContent += `<ul><li><a href="${file.filename}"  ">${file.description}</a></li></ul>`;
             }
         });
 

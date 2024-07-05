@@ -66,9 +66,14 @@
 
   /* Custom style for #sidebar-nav ul#setbottom */
   #sidebar-nav ul#setbottom {
-    @apply mt-auto mb-10 bg-highlight-color;
+    @apply mt-auto mb-10 bg-secondary-color;
     /* Use Tailwind utility classes for margin */
   }
+
+  #sidebar-nav ul#active-link {
+    @apply bg-highlight-color text-white font-bold;
+}
+
 
   header {
     @apply text-center mb-4 bg-secondary-color-light text-primary-color py-3 rounded-lg;

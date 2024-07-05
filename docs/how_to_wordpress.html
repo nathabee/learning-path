@@ -4,93 +4,193 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>How to Wordpress</title>
-  <meta name="keywords" content="mariadb, wp, wordpress, themes, blocks">  
-  <meta name="sidebarposition" content="10">  
+  <title>WordPress</title>
+  <meta name="keywords" content="WordPress, Documentation">
+  <meta name="sidebarposition" content="10">
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
   <div class="container">
-    <aside id="sidebar"> </aside>
+    <aside id="sidebar"></aside>
 
     <main id="main-content">
-      <header> 
-        <h1>Wordpress</h1>
+      <header>
+        <h1>WordPress Documentation</h1>
       </header>
-      <nav>
-        <ul>
-          <li><a href="#overview">Overview</a></li>
-          <li><a href="#access">access </a></li>
-          <li><a href="#installation">installation </a></li>
-          <li><a href="#block"> block</a></li>
-          <li><a href="#database">database</a></li>
-        </ul>
-      </nav>
 
-      <div>
-        <!-- Collapsible sections -->
-        <div class="collapsible" id="overview">
-          <h1>Overview</h1>
-          <div class="content">
-            <h2>Wordpress is a Content Management System CMS</h2>
-            <p>la la la </p>
-          </div>
-        </div>
-      </div>
-      <div>
-        <!-- Collapsible sections -->
-        <div class="collapsible" id="access">
-          <h1>access</h1>
-          <div class="content">
-            <h2>files</h2>
-            <p>the Files are in /var/www apache is configured in
-              sudo chmod -R 755 /var/www/html/wordpress/wp-content/themes/
-              sudo chown -R www-data:www-data /var/www/html/wordpress
-            </p>
-            <h2>adminstration login</h2>
-            <p>http://localhost/wp-admin</p>
-            <h2>database</h2>
-            <p>http://localhost/phpmyadmin/index.php?route=/table/sql&db=wp_beegarten&table=wp_posts</p>
-          </div>
-        </div>
-        <!-- Collapsible sections -->
-        <div class="collapsible" id="installation">
-          <h1>installation</h1>
-          <div class="content">
-            <h2>Theme</h2>
-            <p>la la la </p>
-          </div>
-        </div>
+      <section class="collapsible" id="overview">
+        <h1>Overview</h1>
+        <div class="content">
+          <hr>
+          <h2>What is WordPress?</h2>
+          <p>WordPress is a free and open-source content management system (CMS) based on PHP and MySQL. It features a
+            plugin architecture and a template system, referred to as Themes. WordPress is used by over 40% of all
+            websites on the internet.</p>
 
-        <div class="collapsible" id="block">
-          <h1>Block</h1>
-          <div class="content">
-            <h2>Theme</h2>
-            <p>la la la </p>
-          </div>
+          <h2>Why Use WordPress?</h2>
+          <p>WordPress is user-friendly, flexible, and scalable. It offers a range of features including a wide variety
+            of themes and plugins, making it easy to create any type of website, from blogs to e-commerce stores.</p>
+
+          <h2>Key Features</h2>
+          <ul>
+            <li>User-friendly interface</li>
+            <li>Extensive plugin and theme ecosystem</li>
+            <li>SEO-friendly</li>
+            <li>Responsive design</li>
+            <li>Strong community support</li>
+          </ul>
         </div>
-        <div class="collapsible" id="database">
-          <h1>database</h1>
-          <div class="content">
-            <h2>Theme</h2>
-            <p>la la la </p>
-          </div>
+      </section>
+
+      <section class="collapsible" id="installation">
+        <h1>Installation</h1>
+        <div class="content">
+          <hr>
+          <h2>Installation on Ubuntu</h2>
+          <pre><code># Update your package index
+sudo apt update
+
+# Install necessary packages
+sudo apt install apache2 mysql-server php php-mysql libapache2-mod-php php-cli
+
+# Download WordPress
+wget -c http://wordpress.org/latest.tar.gz
+
+# Extract WordPress
+tar -xzvf latest.tar.gz
+
+# Move WordPress to the Apache directory
+sudo mv wordpress/* /var/www/html/
+
+# Set permissions
+sudo chown -R www-data:www-data /var/www/html/
+sudo chmod -R 755 /var/www/html/
+
+# Create WordPress configuration file
+sudo cp /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
+
+# Open MySQL and create a database
+sudo mysql -u root -p
+CREATE DATABASE wordpress;
+GRANT ALL PRIVILEGES ON wordpress.* TO 'wordpressuser'@'localhost' IDENTIFIED BY 'password';
+FLUSH PRIVILEGES;
+EXIT;
+
+# Configure wp-config.php file
+sudo nano /var/www/html/wp-config.php
+// Add the database details and save the file
+
+# Restart Apache
+sudo systemctl restart apache2
+</code></pre>
+
+          <h2>Apache Configuration</h2>
+          <pre><code># Enable Apache mod_rewrite
+sudo a2enmod rewrite
+
+# Configure Apache to allow .htaccess overrides
+sudo nano /etc/apache2/sites-available/000-default.conf
+# Add the following within the <Directory "/var/www/html"> directive:
+# AllowOverride All
+
+# Restart Apache
+sudo systemctl restart apache2
+</code></pre>
+
+          <h2>files</h2>
+          <p>the Files are in /var/www apache is configured in
+            sudo chmod -R 755 /var/www/html/wordpress/wp-content/themes/
+            sudo chown -R www-data:www-data /var/www/html/wordpress
+          </p>
+          <h2>adminstration login</h2>
+          <p>http://localhost/wp-admin</p>
+          <h2>database</h2>
+          <p>http://localhost/phpmyadmin/index.php?route=/table/sql&db=wp_beegarten&table=wp_posts</p>
         </div>
-      </div>
+      </section>
+
+      <section class="collapsible" id="history">
+        <h1>Important Modifications Since 2018</h1>
+        <div class="content">
+          <hr>
+          <h2>WordPress 5.0 (2018)</h2>
+          <p>Introduction of the new block editor, Gutenberg. This update changed the way content is created and edited,
+            moving from the classic editor to a block-based editor.</p>
+
+          <h2>WordPress 5.5 (2020)</h2>
+          <p>Enhanced the block editor with new features, improved media handling, and introduced lazy loading for
+            images and iframes.</p>
+
+          <h2>WordPress 5.6 (2020)</h2>
+          <p>Further improvements to the block editor with additional blocks and patterns, along with support for WebP
+            images.</p>
+
+          <h2>WordPress 5.9 (2022)</h2>
+          <p>Introduced full site editing capabilities, allowing users to edit headers, footers, and other site-wide
+            elements using the block editor.</p>
+        </div>
+      </section>
+
+      <section class="collapsible" id="block">
+        <h1>Introduction to Blocks</h1>
+        <div class="content">
+          <hr>
+          <h2>What are Blocks?</h2>
+          <p>Blocks are the building blocks of content in WordPress. They allow you to create and organize content in a
+            modular way. Each block represents a different piece of content, such as text, images, videos, or quotes.
+          </p>
+
+          <h2>Using the Block Editor</h2>
+          <p>The block editor, also known as Gutenberg, provides a visual interface for creating and editing content.
+            You can add, rearrange, and style blocks to create complex layouts with ease.</p>
+
+          <h2>Common Blocks</h2>
+          <ul>
+            <li>Paragraph</li>
+            <li>Image</li>
+            <li>Heading</li>
+            <li>Gallery</li>
+            <li>List</li>
+            <li>Quote</li>
+            <li>Audio</li>
+            <li>Cover</li>
+            <li>File</li>
+            <li>Video</li>
+          </ul>
+
+          <h2>Reusable Blocks</h2>
+          <p>Reusable blocks allow you to create content that can be used across multiple posts and pages. This feature
+            is especially useful for content that you want to reuse, such as a call to action or a signature block.</p>
+        </div>
+      </section>
+
+      <section class="collapsible" id="links">
+        <h1>Important Websites</h1>
+        <div class="content">
+          <hr>
+          <ul>
+            <li><a href="https://wordpress.org/">WordPress.org</a></li>
+            <li><a href="https://developer.wordpress.org/">WordPress Developer Resources</a></li>
+            <li><a href="https://wordpress.com/">WordPress.com</a></li>
+            <li><a href="https://codex.wordpress.org/">WordPress Codex</a></li>
+            <li><a href="https://wpbeginner.com/">WPBeginner</a></li>
+            <li><a href="https://wptavern.com/">WP Tavern</a></li>
+            <li><a href="https://www.wpmaintainer.com/">WP Maintainer</a></li>
+          </ul>
+        </div>
+      </section>
     </main>
-
 
     <aside id="right-sidebar">
       <div class="search-container">
-          <input type="text" id="search-input" placeholder="Search...">
-          <button id="search-button">Search</button>
+        <input type="text" id="search-input" placeholder="Search...">
+        <button id="search-button">Search</button>
       </div>
       <div id="search-results"></div>
-  </aside>
+    </aside>
   </div>
   <script src="bundle.js"></script>
-
 </body>
 
 </html>
