@@ -892,8 +892,7 @@ h2 {
 .active-link {
   background-color: var(--highlight-color);
   font-weight: 700;
-  --tw-text-opacity: 1;
-  color: rgb(59 130 246 / var(--tw-text-opacity));
+  color: var(--tertiary-color);
 }
 
 /* Responsive classes */
