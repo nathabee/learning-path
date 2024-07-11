@@ -12,15 +12,27 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const searchButtonIndex = document.getElementById('search-button-index');
     
+    /**************************************************** */
+    const menuToggle = document.getElementById('menu-toggle');
+    const menuSidebar = document.getElementById('menu-sidebar');
+
+    // Check if search button exists before adding event listener
+    if (menuSidebar) {
+
+        menuToggle.addEventListener('click', function() {
+            menuSidebar.classList.toggle('hidden'); // Toggle the 'hidden' class
+        });
+    }
+
 
     /**************************************************** */ 
-    const sidebarNav = document.getElementById('theme-list');
+    const themeList = document.getElementById('theme-list');
 
     function generateSidebarHTML() {
         const currentPath = window.location.pathname;
     
         // Clear existing content if needed
-        sidebarNav.innerHTML = '';
+        themeList.innerHTML = '';
     
         themeMap.forEach((subthemes, themeKey) => {
             const themeItem = document.createElement('li');
@@ -86,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 themeItem.appendChild(subthemeList);
             }
     
-            sidebarNav.appendChild(themeItem);
+            themeList.appendChild(themeItem);
         });
     }
     
@@ -112,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
     generateSidebarHTML();
     
     // Event delegation for theme and subtheme links
-    sidebarNav.addEventListener('click', function(event) {
+    themeList.addEventListener('click', function(event) {
         handleThemeLinkClick(event);
         handleSubthemeLinkClick(event);
     });
@@ -197,27 +209,29 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
  
-    // Function to display last modified files in HTML
-    function displayLastModifiedFiles(modifiedFiles) {
-        const listContainer = document.getElementById('last-modified-files');
-        if (!listContainer) return;
+    const listContainer = document.getElementById('last-modified-files');
+    if ( listContainer) {  
+        // Function to display last modified files in HTML
+        function displayLastModifiedFiles(modifiedFiles) {
 
-        let html = '<ul>';
-        modifiedFiles.forEach(file => {
-            html += `<li><a href="${file.filename}">${file.description}</a> - ${file.lastModified}</li>`;
-        });
-        html += '</ul>';
-        listContainer.innerHTML = html;
+            let html = '<ul>';
+            modifiedFiles.forEach(file => {
+                html += `<li><a href="${file.filename}">${file.description}</a> - ${file.lastModified}</li>`;
+            });
+            html += '</ul>';
+            listContainer.innerHTML = html;
+        }
+
+        // Ensure the function to display last modified files is called
+        console.log('DOMContentLoaded event fired');
+
+        // Sort files by last modified date (descending) and display
+        filesMetadata.sort((a, b) => new Date(b.lastModified) - new Date(a.lastModified));
+        console.log('Files sorted by last modified date:', filesMetadata);
+
+        displayLastModifiedFiles(filesMetadata.slice(0, 10));
+        
     }
-
-    // Ensure the function to display last modified files is called
-    console.log('DOMContentLoaded event fired');
-
-    // Sort files by last modified date (descending) and display
-    filesMetadata.sort((a, b) => new Date(b.lastModified) - new Date(a.lastModified));
-    console.log('Files sorted by last modified date:', filesMetadata);
-
-    displayLastModifiedFiles(filesMetadata.slice(0, 10));
     /**************************************************** */
      
   

@@ -2,6 +2,7 @@ const themeMap = new Map();
 themeMap.set('Home', new Map());
 themeMap.get('Home').set('Index', 'Index');
 themeMap.get('Home').set('Install', 'Installation tipps');
+themeMap.get('Home').set('TestMyThing', 'Test some new feature');
 themeMap.set('CodingFundamentals', new Map());
 themeMap.get('CodingFundamentals').set('Variables', 'Variables');
 themeMap.get('CodingFundamentals').set('DataTypes', 'Data Types');

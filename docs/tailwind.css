@@ -4,31 +4,17 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Define custom colors in the root */
-:root {
-    --primary-color-light: #6CB2B8;        /* Light teal */
-    --primary-color: #2C7A7B;              /* Teal */
-    --secondary-color-light: #F2CC8F;      /* Light yellow */
-    --secondary-color: #B48E65;            /* Brownish */
-    --tertiary-color-light: #EAA9A9;       /* Light red */
-    --tertiary-color: #8F3E3E;             /* Dark red */
-    --highlight-color: #FFD700;            /* Gold */
-    --black: #333333;                      /* Dark gray */
-    --white: #FFFFFF;                      /* White */
-}
-
-/* Apply Tailwind CSS utility classes */
 body {
     @apply bg-primary-color text-tertiary-color font-sans;
 }
 
 .container {
-    @apply m-4 p-4 bg-secondary-color rounded-lg shadow-lg flex;
+    @apply  rounded-lg shadow-lg flex ml-4     flex-row items-center justify-between;
 }
- 
+
 #sidebar {
-    @apply w-64 bg-primary-color-light p-4  rounded-lg;  /*p-4 */
-} 
+    @apply w-64 bg-primary-color-light p-4 rounded-lg;
+}
 
 #main-content {
     @apply flex-1 bg-primary-color-light ml-4 p-4 rounded-lg min-w-[350px];
@@ -39,20 +25,16 @@ body {
 }
 
 /* Custom styles for specific elements */
-/*
-#sidebar-nav ul#setbottom {
-    @apply mt-auto mb-10 bg-secondary-color;
-}
-
-#sidebar-nav ul#active-link {
-    @apply bg-highlight-color text-white font-bold;
-}
-*/
-
-
-/* Other specific styles using Tailwind classes */
 header {
-    @apply text-center mb-4 bg-secondary-color-light text-primary-color py-3 rounded-lg;
+    @apply text-center    bg-primary-color  bg-primary-color-translucent text-white py-1 rounded-lg sticky top-0 z-50;
+}
+
+#menu-toggle {
+    @apply bg-primary-color-light text-white cursor-pointer p-2 border text-left outline-none text-lg rounded my-2 hover:bg-primary-color;
+}
+
+#menu-sidebar {
+    @apply w-64 bg-primary-color-light p-4 rounded-lg;
 }
 
 nav ul {
@@ -83,9 +65,13 @@ code {
     @apply p-4 hidden overflow-hidden bg-gray-100 text-tertiary-color border rounded my-2;
 }
 
-h2 {
-    @apply p-4 mb-2 bg-tertiary-color-light text-black ml-4 py-2 rounded-lg;
 
+h1 {
+    @apply flex-grow text-center text-white  font-bold text-xl;
+}
+
+h2 {
+    @apply p-4 mb-2 bg-tertiary-color-light text-black ml-4 py-2 rounded-lg ;
 }
 
 .search-container {
@@ -108,35 +94,29 @@ h2 {
     @apply bg-highlight-color;
 }
 
-/* New styles for sidebar navigation */ 
 .hidden {
-  display: none;
+    display: none;
 }
 
 .theme-link {
-  @apply cursor-pointer text-primary-color font-bold hover:text-tertiary-color;
+    @apply cursor-pointer text-primary-color font-bold hover:text-tertiary-color;
 }
 
-
 .subtheme-link {
-  @apply cursor-pointer text-secondary-color hover:text-tertiary-color;
+    @apply cursor-pointer text-secondary-color hover:text-tertiary-color;
 }
 
 .subtheme-list {
-  @apply   ml-1; /*  margin-left for indentation */
+    @apply ml-1; /* margin-left for indentation */
 }
 
-
 .file-list {
-  @apply  text-xs   text-secondary-color hover:text-tertiary-color; /* Keep the hidden class and margin-left for indentation */
+    @apply text-xs text-secondary-color hover:text-tertiary-color; /* Keep the hidden class and margin-left for indentation */
 }
 
 .active-link {
-  @apply font-bold text-tertiary-color bg-highlight-color;
+    @apply font-bold text-tertiary-color bg-highlight-color;
 }
-
- 
-
 
 /* Responsive classes */
 @media (max-width: 768px) {

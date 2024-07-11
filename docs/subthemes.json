@@ -4,7 +4,8 @@
       "description": "Home",
       "subthemes": {
         "Index": "Index",
-        "Install": "Installation tipps"
+        "Install": "Installation tipps",
+        "TestMyThing" : "Test some new feature"
       }
     },
     "CodingFundamentals": {

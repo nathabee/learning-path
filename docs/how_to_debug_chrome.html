@@ -7,39 +7,61 @@
     <title>Using Chrome DevTools for Front-End Debugging</title>
     <meta name="themekey" content="QualityAssurance">
     <meta name="subthemekey" content="Debug">
-    <meta name="keywords" content="Chrome DevTools, Front-End Debugging, JavaScript Debugging, Network Analysis, Performance Monitoring, Cookies, Local Storage">
+    <meta name="keywords"
+        content="Chrome DevTools, Front-End Debugging, JavaScript Debugging, Network Analysis, Performance Monitoring, Cookies, Local Storage">
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <div class="container">
-        <aside id="sidebar">
-            <nav id="sidebar-nav">
+    <header id="header">
+        <div class="container flex-row">
+            <div id="menu-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </div>
+            <h1>Using Chrome DevTools for Front-End Debugging</h1>
+        </div>
+    </header>
+
+
+    <div class="container flex-row">
+        <aside id="menu-sidebar">
+            <nav id="menu-sidebar-nav">
                 <ul id="theme-list">
                     <!-- Themes will be dynamically added here -->
                 </ul>
             </nav>
         </aside>
 
+
         <main id="main-content">
             <header>
-                <h1>Using Chrome DevTools for Front-End Debugging</h1>
+                <h1>Debugging Next.js Applications</h1>
             </header>
+
+
 
             <section class="collapsible" id="overview">
                 <h1>Overview</h1>
                 <div class="content">
                     <hr>
                     <h2>Presentation</h2>
-                    <p>This guide provides a comprehensive overview of using Chrome DevTools for debugging front-end issues. It covers essential tools and techniques to inspect elements, debug JavaScript, analyze network activity, monitor performance, and manage cookies and local storage.</p>
+                    <p>This guide provides a comprehensive overview of using Chrome DevTools for debugging front-end
+                        issues. It covers essential tools and techniques to inspect elements, debug JavaScript, analyze
+                        network activity, monitor performance, and manage cookies and local storage.</p>
 
                     <h2>History</h2>
-                    <p>Chrome DevTools has evolved into a powerful suite of tools designed to aid developers in debugging and optimizing web applications. It offers real-time debugging capabilities and performance monitoring features that are essential for front-end development.</p>
+                    <p>Chrome DevTools has evolved into a powerful suite of tools designed to aid developers in
+                        debugging and optimizing web applications. It offers real-time debugging capabilities and
+                        performance monitoring features that are essential for front-end development.</p>
                     <pre><code># Example of inspecting elements in Chrome DevTools
                         // Inspecting HTML and CSS
                         // Viewing and modifying DOM elements
                         </code></pre>
-                    <p>With Chrome DevTools, developers can efficiently identify and fix issues related to HTML, CSS, JavaScript, and network performance, ensuring a seamless user experience.</p>
+                    <p>With Chrome DevTools, developers can efficiently identify and fix issues related to HTML, CSS,
+                        JavaScript, and network performance, ensuring a seamless user experience.</p>
                 </div>
             </section>
 
@@ -48,7 +70,9 @@
                 <div class="content">
                     <hr>
                     <h2>Inspecting HTML and CSS</h2>
-                    <p>Use Chrome DevTools to inspect and modify HTML elements and CSS styles in real-time. Navigate the DOM hierarchy, inspect computed styles, and experiment with changes to troubleshoot layout and styling issues.</p>
+                    <p>Use Chrome DevTools to inspect and modify HTML elements and CSS styles in real-time. Navigate the
+                        DOM hierarchy, inspect computed styles, and experiment with changes to troubleshoot layout and
+                        styling issues.</p>
                     <pre><code># Example: Inspecting and editing CSS in Chrome DevTools
                         // Navigate to Elements panel
                         // Select an element and view its styles
@@ -62,7 +86,9 @@
                 <div class="content">
                     <hr>
                     <h2>Debugging JavaScript Code</h2>
-                    <p>Use Chrome DevTools to set breakpoints, step through JavaScript code execution, inspect variables, and diagnose logic errors. Utilize the Console panel for logging messages and executing JavaScript commands interactively.</p>
+                    <p>Use Chrome DevTools to set breakpoints, step through JavaScript code execution, inspect
+                        variables, and diagnose logic errors. Utilize the Console panel for logging messages and
+                        executing JavaScript commands interactively.</p>
                     <pre><code># Example: Debugging JavaScript in Chrome DevTools
                         // Set breakpoints in JavaScript code
                         // Step through code execution
@@ -76,7 +102,9 @@
                 <div class="content">
                     <hr>
                     <h2>Analyzing Network Activity</h2>
-                    <p>Use Chrome DevTools to monitor network requests, inspect HTTP headers, and analyze response data. Capture network traffic, simulate network conditions, and identify performance bottlenecks affecting your web application.</p>
+                    <p>Use Chrome DevTools to monitor network requests, inspect HTTP headers, and analyze response data.
+                        Capture network traffic, simulate network conditions, and identify performance bottlenecks
+                        affecting your web application.</p>
                     <pre><code># Example: Network analysis with Chrome DevTools
                         // Monitor network requests in Network panel
                         // Inspect request and response details
@@ -90,7 +118,9 @@
                 <div class="content">
                     <hr>
                     <h2>Monitoring Performance Metrics</h2>
-                    <p>Use Chrome DevTools to measure and optimize web page performance. Analyze loading times, CPU and memory usage, and identify opportunities for performance improvements. Utilize performance profiling tools to capture and analyze runtime performance data.</p>
+                    <p>Use Chrome DevTools to measure and optimize web page performance. Analyze loading times, CPU and
+                        memory usage, and identify opportunities for performance improvements. Utilize performance
+                        profiling tools to capture and analyze runtime performance data.</p>
                     <pre><code># Example: Performance monitoring in Chrome DevTools
                         // Use Performance panel to analyze loading times
                         // Profile CPU and memory usage
@@ -104,7 +134,9 @@
                 <div class="content">
                     <hr>
                     <h2>Managing Cookies and Local Storage Data</h2>
-                    <p>Use Chrome DevTools to inspect and manage cookies and local storage data. View stored data, edit values, delete entries, and simulate scenarios to debug authentication issues or troubleshoot data persistence problems.</p>
+                    <p>Use Chrome DevTools to inspect and manage cookies and local storage data. View stored data, edit
+                        values, delete entries, and simulate scenarios to debug authentication issues or troubleshoot
+                        data persistence problems.</p>
                     <pre><code># Example: Managing cookies and local storage in Chrome DevTools
                         // Navigate to Application panel
                         // View and edit cookies and local storage

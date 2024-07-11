@@ -13,19 +13,30 @@
 </head>
 
 <body>
-  <div class="container">
-    <aside id="sidebar">
-      <nav id="sidebar-nav">
-          <ul id="theme-list">
-              <!-- Themes will be dynamically added here -->
-          </ul>
-      </nav>
-  </aside>
+  <header id="header">
+      <div class="container flex-row">
+          <div id="menu-toggle">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+          </div>
+          <h1>Next JS overview</h1>
+      </div>
+  </header>
 
-    <main id="main-content">
-      <header> 
-        <h1>Wordpress</h1>
-      </header>
+
+  <div class="container flex-row">
+      <aside id="menu-sidebar">
+          <nav id="menu-sidebar-nav">
+              <ul id="theme-list">
+                  <!-- Themes will be dynamically added here -->
+              </ul>
+          </nav>
+      </aside>
+
+
+      <main id="main-content"> 
       <nav>
         <ul>
           <li><a href="#overview">Overview</a></li>
