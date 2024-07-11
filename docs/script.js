@@ -1,9 +1,9 @@
-// Import the precomputed metadata
+// Import the precomputed metadata and themeMap
 import filesMetadata from './metadata.js';
+import themeMap from './themeMap.js';
 
 document.addEventListener('DOMContentLoaded', function () { 
-
-    const sidebar = document.getElementById('sidebar');
+    // const sidebar = document.getElementById('sidebar');  
     const searchInput = document.getElementById('search-input');
     const searchButton = document.getElementById('search-button');
     const resultsContainer = document.getElementById('search-results');
@@ -11,54 +11,114 @@ document.addEventListener('DOMContentLoaded', function () {
     const mainContent = document.getElementById('main-content');  
 
     const searchButtonIndex = document.getElementById('search-button-index');
- 
-
     
 
+    /**************************************************** */ 
+    const sidebarNav = document.getElementById('theme-list');
 
-    /**************************************************** */
-    // Function to generate sidebar HTML from files array
     function generateSidebarHTML() {
         const currentPath = window.location.pathname;
-        // Generate sidebar content
-        let sidebarContent = `
-            <a href="https://github.com/nathabee">
-            <img src="logo.png" alt="Logo">
-            </a>
-            <nav id="sidebar-nav">
-        `;
-        
-        let sidebarContentEnde = "";
-
-
-    // Sort files by sidebarPosition
-    // Convert sidebarposition to number and sort
-    filesMetadata.sort((a, b) => parseInt(a.sidebarposition) - parseInt(b.sidebarposition));
-
-
-
-        filesMetadata.forEach((file, index) => {
-            const isActive = currentPath.includes(file.filename) ? 'active-link' : '';
-            if (isActive === "active-link") {
-
-                sidebarContent += `<ul id="active-link"><li><a href="${file.filename}"  ">${file.description}</a></li></ul>`;
+    
+        // Clear existing content if needed
+        sidebarNav.innerHTML = '';
+    
+        themeMap.forEach((subthemes, themeKey) => {
+            const themeItem = document.createElement('li');
+            const themeLink = document.createElement('div'); // Use <div> instead of <a>
+            themeLink.classList.add('theme-link');
+            themeLink.textContent = themeKey;
+            themeLink.dataset.theme = themeKey;
+    
+            themeItem.appendChild(themeLink);
+    
+            let themeHasActiveFile = false;
+    
+            if (subthemes.size > 0) {
+                const subthemeList = document.createElement('ul');
+                subthemeList.classList.add('subtheme-list', 'hidden');
+    
+                subthemes.forEach((subthemeDescription, subthemeKey) => {
+                    const files = filesMetadata.filter(file => file.subthemekey === subthemeKey);
+                    if (files.length > 0) {
+                        const subthemeItem = document.createElement('li');
+                        const subthemeLink = document.createElement('div'); // Use <div> instead of <a>
+                        subthemeLink.classList.add('subtheme-link');
+                        subthemeLink.textContent = subthemeDescription;
+                        subthemeLink.dataset.subtheme = subthemeKey;
+    
+                        const fileList = document.createElement('ul');
+                        fileList.classList.add('file-list', 'hidden');
+                        
+                        let subthemeHasActiveFile = false;
+    
+                        files.forEach(file => {
+                            const fileItem = document.createElement('li');
+                            const fileLink = document.createElement('a'); // Use <a> for file links
+                            fileLink.href = file.filename;
+                            fileLink.textContent = file.description;
+    
+                            // Check if current file is active
+                            if (currentPath.includes(file.filename)) {
+                                fileLink.classList.add('active-link');
+                                subthemeHasActiveFile = true;
+                                themeHasActiveFile = true;
+                            }
+    
+                            fileItem.appendChild(fileLink);
+                            fileList.appendChild(fileItem);
+                        });
+    
+                        if (subthemeHasActiveFile) {
+                            fileList.classList.remove('hidden');
+                            subthemeList.classList.remove('hidden');
+                        }
+    
+                        subthemeItem.appendChild(subthemeLink);
+                        subthemeItem.appendChild(fileList);
+                        subthemeList.appendChild(subthemeItem);
+                    }
+                });
+    
+                if (themeHasActiveFile) {
+                    subthemeList.classList.remove('hidden');
+                }
+    
+                themeItem.appendChild(subthemeList);
             }
-            else if (file.filename === "debug.html") {
-                sidebarContentEnde += `<ul id="setbottom"><li><a href="${file.filename}"  ">${file.description}</a></li></ul>`;
-            } else {
-                sidebarContent += `<ul><li><a href="${file.filename}"  ">${file.description}</a></li></ul>`;
-            }
+    
+            sidebarNav.appendChild(themeItem);
         });
-
-        sidebarContent += sidebarContentEnde;
-        sidebarContent += `</nav>`;
-        sidebar.innerHTML = sidebarContent;
     }
-
-
-  
-
-
+    
+    function handleThemeLinkClick(event) {
+        if (event.target.classList.contains('theme-link')) {
+            const subthemeList = event.target.nextElementSibling;
+            if (subthemeList) {
+                subthemeList.classList.toggle('hidden');
+            }
+        }
+    }
+    
+    function handleSubthemeLinkClick(event) {
+        if (event.target.classList.contains('subtheme-link')) {
+            const fileList = event.target.nextElementSibling;
+            if (fileList) {
+                fileList.classList.toggle('hidden');
+            }
+        }
+    }
+    
+    // Generate sidebar HTML
+    generateSidebarHTML();
+    
+    // Event delegation for theme and subtheme links
+    sidebarNav.addEventListener('click', function(event) {
+        handleThemeLinkClick(event);
+        handleSubthemeLinkClick(event);
+    });
+    
+ 
+    /**************************************************** */
 
  
     // Function to handle search
@@ -92,8 +152,7 @@ document.addEventListener('DOMContentLoaded', function () {
         searchButtonIndex.addEventListener('click', handleSearch);
     }
 
-    // Generate sidebar HTML on page load
-    generateSidebarHTML();
+ 
 
 
     /**************************************************** */

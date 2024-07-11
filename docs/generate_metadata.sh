@@ -1,39 +1,73 @@
 #!/bin/bash
 
-# Output file for metadata.js
-OUTPUT_FILE="metadata.js"
+# JSON file path
+JSON_FILE="subthemes.json"
 
-# Start of metadata.js content
-echo "const filesMetadata = [" > $OUTPUT_FILE
+# Output files
+METADATA_FILE="metadata.js"
+THEME_MAP_FILE="themeMap.js"
 
-# Iterate over each HTML file in the directory
-for file in *.html; do
-    # Extract the description from the <title> tag
-    description=$(grep -oP '(?<=<title>).*?(?=</title>)' "$file" | head -1)
+# Generate metadata.js
+generate_metadata_js() {
+  echo "const filesMetadata = [" > "$METADATA_FILE"
+  
+  for file in *.html; do
+    extract_metadata "$file" >> "$METADATA_FILE"
+  done
+  
+  echo "];" >> "$METADATA_FILE"
+  echo "export default filesMetadata;" >> "$METADATA_FILE"
+}
 
-    # Get the last modified date of the file in readable format
-    lastModified=$(date -r "$file" "+%F %H:%M")
+# Function to extract metadata from HTML files
+extract_metadata() {
+  local file="$1"
+  local filename=$(basename "$file")
+  local description=$(grep -oP '(?<=<title>).*?(?=</title>)' "$file" | head -1 | sed 's/"/\\"/g')
+  local keywords=$(grep -oP '(?<=<meta name="keywords" content=").+?(?=")' "$file")
+  local sidebarposition=$(grep -oP '(?<=<meta name="sidebarposition" content=").+?(?=")' "$file")
+  local lastModified=$(date -r "$file" "+%F %H:%M")
+  local subthemekey=$(grep -oP '(?<=<meta name="subthemekey" content=").+?(?=")' "$file")
 
-    # Escape special characters in description
-    description=$(echo "$description" | sed 's/"/\\"/g')
+  # Get theme and subtheme descriptions from JSON
+  local theme=$(jq -r --arg subthemekey "$subthemekey" '.themes | to_entries[] | select(.value.subthemes[$subthemekey] != null) | .key' "$JSON_FILE")
+  local subtheme=$(jq -r --arg subthemekey "$subthemekey" '.themes | to_entries[] | select(.value.subthemes[$subthemekey] != null) | .value.subthemes[$subthemekey]' "$JSON_FILE")
 
-    # Extract the keywords from the <meta name="keywords" content=""> tag
-    keywords=$(grep -oP '(?<=<meta name="keywords" content=").*?(?=">)' "$file" | head -1)
+  if [ -z "$theme" ]; then
+    theme="Unknown"
+  fi
 
-    # Extract the keywords from the <meta name="keywords" content=""> tag
-    sidebarposition=$(grep -oP '(?<=<meta name="sidebarposition" content=").*?(?=">)' "$file" | head -1)
+  if [ -z "$subtheme" ]; then
+    subtheme="null"
+  fi
 
-    keywords=$(echo "$keywords" | sed 's/"/\\"/g')
-    sidebarposition=$(echo "$sidebarposition" | sed 's/"/\\"/g')
+  echo "    { filename: \"$filename\", description: \"$description\", themekey: \"$theme\", subthemekey: \"$subthemekey\", theme: \"$theme\", subtheme: \"$subtheme\", keywords: \"$keywords\", sidebarposition: \"$sidebarposition\", lastModified: \"$lastModified\" },"
+}
 
-    # Format data as JavaScript object and append to metadata.js
-    echo "    { filename: \"$file\", description: \"$description\", keywords: \"$keywords\", sidebarposition: \"$sidebarposition\", lastModified: \"$lastModified\" }," >> $OUTPUT_FILE
-done
+# Generate themeMap.js
+generate_theme_map_js() {
+  echo "const themeMap = new Map();" > "$THEME_MAP_FILE"
 
-# End of metadata.js content
-echo "];" >> $OUTPUT_FILE
-echo "" >> $OUTPUT_FILE
-echo "export default filesMetadata;" >> $OUTPUT_FILE  # Add export statement
+  # Read themes and subthemes in order from JSON file
+  jq -c '.themes | to_entries[]' "$JSON_FILE" | while read -r themeEntry; do
+    theme=$(echo "$themeEntry" | jq -r '.key')
+    subthemes=$(echo "$themeEntry" | jq -c '.value.subthemes | to_entries[]')
 
-# Output completion message
-echo "Generated $OUTPUT_FILE with metadata for $(ls *.html | wc -l) HTML files."
+    echo "themeMap.set('$theme', new Map());" >> "$THEME_MAP_FILE"
+
+    echo "$subthemes" | while read -r subthemeEntry; do
+      subthemekey=$(echo "$subthemeEntry" | jq -r '.key')
+      subtheme=$(echo "$subthemeEntry" | jq -r '.value')
+
+      echo "themeMap.get('$theme').set('$subthemekey', '$subtheme');" >> "$THEME_MAP_FILE"
+    done
+  done
+
+  echo "export default themeMap;" >> "$THEME_MAP_FILE"
+}
+
+# Run the script
+generate_metadata_js
+generate_theme_map_js
+
+echo "Metadata extraction and themeMap generation complete."

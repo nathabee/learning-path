@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debugging React.js Applications</title>
+    <meta name="themekey" content="QualityAssurance">
+    <meta name="subthemekey" content="Debug">
+    <meta name="keywords" content="React.js, Debugging, React Developer Tools, Hooks, State, Prop Errors, Performance Issues, Jest, React Testing Library">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <aside id="sidebar">
+            <nav id="sidebar-nav">
+                <ul id="theme-list">
+                    <!-- Themes will be dynamically added here -->
+                </ul>
+            </nav>
+        </aside>
+
+        <main id="main-content">
+            <header>
+                <h1>Debugging React.js Applications</h1>
+            </header>
+
+            <section class="collapsible" id="overview">
+                <h1>Overview</h1>
+                <div class="content">
+                    <hr>
+                    <h2>Presentation</h2>
+                    <p>This guide explores advanced techniques for debugging React.js applications, focusing on essential tools and strategies to diagnose and resolve issues encountered during React development. It covers using React Developer Tools, debugging hooks and state management, handling prop errors, debugging performance issues, and testing components using Jest and React Testing Library.</p>
+
+                    <h2>History</h2>
+                    <p>React.js has become a popular JavaScript library for building interactive user interfaces. Debugging React applications involves identifying and fixing issues related to component rendering, state management, props validation, performance bottlenecks, and unit testing.</p>
+                    <pre><code># Example: Debugging React Component State
+                        Use React Developer Tools to inspect component state changes
+                        Identify state update issues and unexpected behavior
+                        </code></pre>
+                    <p>By mastering debugging techniques and tools for React.js, developers can enhance code quality, optimize application performance, and deliver robust user experiences.</p>
+                </div>
+            </section>
+
+            <section class="collapsible" id="react-devtools">
+                <h1>Using React Developer Tools</h1>
+                <div class="content">
+                    <hr>
+                    <h2>Inspecting React Components</h2>
+                    <p>Utilize React Developer Tools, a browser extension, for debugging React components and visualizing component hierarchies. Learn how to inspect component props, state, and context, and analyze component re-renders to optimize performance.</p>
+                    <pre><code># Example: Inspecting React Component Props
+                        View props passed to components
+                        Debug prop validation and type errors
+                        </code></pre>
+                </div>
+            </section>
+
+            <section class="collapsible" id="hooks-state">
+                <h1>Debugging Hooks and State</h1>
+                <div class="content">
+                    <hr>
+                    <h2>Troubleshooting State Management</h2>
+                    <p>Debug React hooks (useState, useEffect, useContext) to manage component state and side effects. Address issues related to state initialization, updates, and synchronization between components.</p>
+                    <pre><code># Example: Debugging useState Hook
+                        Check hook dependencies and effect dependencies
+                        Handle state update race conditions
+                        </code></pre>
+                </div>
+            </section>
+
+            <section class="collapsible" id="prop-errors">
+                <h1>Handling Prop Errors</h1>
+                <div class="content">
+                    <hr>
+                    <h2>Addressing Prop Validation Issues</h2>
+                    <p>Handle prop errors and validate component props using PropTypes or TypeScript. Implement strategies to prevent prop type mismatches, undefined props, and incorrect data types passed to components.</p>
+                    <pre><code># Example: Prop Validation with PropTypes
+                        Define propTypes for component props
+                        Validate prop types and default values
+                        </code></pre>
+                </div>
+            </section>
+
+            <section class="collapsible" id="performance-issues">
+                <h1>Debugging Performance Issues</h1>
+                <div class="content">
+                    <hr>
+                    <h2>Optimizing React Component Performance</h2>
+                    <p>Identify and resolve performance bottlenecks in React components using profiling tools and performance monitoring techniques. Improve component rendering, reduce unnecessary re-renders, and optimize data fetching and state updates.</p>
+                    <pre><code># Example: Performance Profiling with React Profiler
+                        Analyze component render times and re-renders
+                        Optimize component shouldComponentUpdate or React.memo usage
+                        </code></pre>
+                </div>
+            </section>
+
+            <section class="collapsible" id="testing-components">
+                <h1>Testing Components with Jest and React Testing Library</h1>
+                <div class="content">
+                    <hr>
+                    <h2>Implementing Component Tests</h2>
+                    <p>Use Jest and React Testing Library for unit testing React components. Create test suites to verify component rendering, state changes, user interactions, and edge cases. Integrate tests into continuous integration (CI) pipelines for automated testing.</p>
+                    <pre><code># Example: Testing React Component Rendering
+                        Write unit tests with Jest and React Testing Library
+                        Mock component dependencies and simulate user interactions
+                        </code></pre>
+                </div>
+            </section>
+        </main>
+
+        <aside id="right-sidebar">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search...">
+                <button id="search-button">Search</button>
+            </div>
+            <div id="search-results"></div>
+        </aside>
+    </div>
+    <script src="bundle.js"></script>
+</body>
+
+</html>

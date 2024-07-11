@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debugging Node.js Applications</title>
+    <meta name="themekey" content="QualityAssurance">
+    <meta name="subthemekey" content="Debug">
+    <meta name="keywords" content="Node.js, Debugging, Node.js Debugger, Chrome DevTools, Exceptions, Errors, Asynchronous Code, Winston">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <aside id="sidebar">
+            <nav id="sidebar-nav">
+                <ul id="theme-list">
+                    <!-- Themes will be dynamically added here -->
+                </ul>
+            </nav>
+        </aside>
+
+        <main id="main-content">
+            <header>
+                <h1>Debugging Node.js Applications</h1>
+            </header>
+
+            <section class="collapsible" id="overview">
+                <h1>Overview</h1>
+                <div class="content">
+                    <hr>
+                    <h2>Presentation</h2>
+                    <p>This guide provides an in-depth overview of debugging Node.js applications. It covers essential techniques and tools to debug Node.js code effectively, including using the built-in Node.js debugger, leveraging Chrome DevTools for debugging, handling exceptions and errors, debugging asynchronous code, and utilizing logging libraries like Winston.</p>
+
+                    <h2>History</h2>
+                    <p>Debugging Node.js applications is crucial for identifying and fixing issues in server-side JavaScript code. Developers often encounter errors related to asynchronous operations, exceptions, and performance bottlenecks, which require systematic debugging techniques.</p>
+                    <pre><code># Example of using the built-in Node.js debugger
+                        node inspect app.js
+                        debugger;
+                        </code></pre>
+                    <p>By mastering Node.js debugging tools and techniques, developers can streamline development workflows and deliver reliable, high-performance applications.</p>
+                </div>
+            </section>
+
+            <section class="collapsible" id="nodejs-debugger">
+                <h1>Using the Built-in Node.js Debugger</h1>
+                <div class="content">
+                    <hr>
+                    <h2>Debugging with Node.js Debugger</h2>
+                    <p>Use the built-in Node.js debugger to set breakpoints, inspect variables, and step through code execution. Explore the debugger's commands and features to diagnose and fix issues in Node.js applications.</p>
+                    <pre><code># Example: Debugging with Node.js Debugger
+                        node inspect app.js
+                        debugger;
+                        </code></pre>
+                </div>
+            </section>
+
+            <section class="collapsible" id="chrome-devtools">
+                <h1>Debugging with Chrome DevTools</h1>
+                <div class="content">
+                    <hr>
+                    <h2>Debugging Node.js with Chrome DevTools</h2>
+                    <p>Utilize Chrome DevTools for debugging Node.js applications running with the inspect flag. Connect Chrome DevTools to a Node.js process, set breakpoints, and analyze runtime behavior using DevTools' familiar interface.</p>
+                    <pre><code># Example: Debugging Node.js with Chrome DevTools
+                        node --inspect-brk app.js
+                        </code></pre>
+                </div>
+            </section>
+
+            <section class="collapsible" id="exceptions-errors">
+                <h1>Handling Exceptions and Errors</h1>
+                <div class="content">
+                    <hr>
+                    <h2>Handling Exceptions and Errors in Node.js</h2>
+                    <p>Implement error handling strategies in Node.js applications to gracefully manage exceptions and errors. Use try-catch blocks, error objects, and async/await constructs to prevent application crashes and ensure robust error handling.</p>
+                    <pre><code># Example: Handling Exceptions in Node.js
+                        try {
+                            // Code that may throw an error
+                        } catch (error) {
+                            // Handle the error
+                        }
+                        </code></pre>
+                </div>
+            </section>
+
+            <section class="collapsible" id="async-code">
+                <h1>Debugging Asynchronous Code</h1>
+                <div class="content">
+                    <hr>
+                    <h2>Debugging Asynchronous Code in Node.js</h2>
+                    <p>Debug asynchronous operations in Node.js using promises, async/await, and callback functions. Use debugger tools to trace asynchronous flow, inspect callbacks, and troubleshoot timing and sequencing issues.</p>
+                    <pre><code># Example: Debugging Asynchronous Code in Node.js
+                        async function fetchData() {
+                            // Asynchronous operation
+                            const data = await fetchDataFromAPI();
+                            console.log(data);
+                        }
+                        </code></pre>
+                </div>
+            </section>
+
+            <section class="collapsible" id="logging-libraries">
+                <h1>Using Logging Libraries like Winston</h1>
+                <div class="content">
+                    <hr>
+                    <h2>Logging with Winston in Node.js</h2>
+                    <p>Integrate Winston or other logging libraries into Node.js applications to capture and analyze runtime information. Configure logging levels, format log entries, and use log aggregation tools for troubleshooting and monitoring application behavior.</p>
+                    <pre><code># Example: Logging with Winston in Node.js
+                        const winston = require('winston');
+                        const logger = winston.createLogger({
+                            transports: [
+                                new winston.transports.Console(),
+                                new winston.transports.File({ filename: 'logfile.log' })
+                            ]
+                        });
+                        </code></pre>
+                </div>
+            </section>
+        </main>
+
+        <aside id="right-sidebar">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search...">
+                <button id="search-button">Search</button>
+            </div>
+            <div id="search-results"></div>
+        </aside>
+    </div>
+    <script src="bundle.js"></script>
+</body>
+
+</html>

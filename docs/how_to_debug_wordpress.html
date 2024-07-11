@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debugging WordPress Issues</title>
+    <meta name="themekey" content="QualityAssurance">
+    <meta name="subthemekey" content="Debug">
+    <meta name="keywords" content="WordPress, Debugging, WP_DEBUG, WP_DEBUG_LOG, Plugins, Themes, Front-end Issues">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <aside id="sidebar">
+            <nav id="sidebar-nav">
+                <ul id="theme-list">
+                    <!-- Themes will be dynamically added here -->
+                </ul>
+            </nav>
+        </aside>
+
+        <main id="main-content">
+            <header>
+                <h1>Debugging WordPress Issues</h1>
+            </header>
+
+            <section class="collapsible" id="overview">
+                <h1>Overview</h1>
+                <div class="content">
+                    <hr>
+                    <h2>Presentation</h2>
+                    <p>This guide provides comprehensive techniques for debugging WordPress issues, covering essential tools and strategies to diagnose and resolve common errors in WordPress websites. It includes enabling debug mode, using WP_DEBUG_LOG for logging errors, troubleshooting common WordPress errors, debugging plugins and themes, and using the browser console for front-end issues.</p>
+
+                    <h2>History</h2>
+                    <p>Debugging WordPress issues is crucial for maintaining and enhancing WordPress websites. Developers and site administrators often encounter errors related to plugins, themes, database queries, and front-end functionality, which require systematic debugging techniques.</p>
+                    <pre><code># Example: Enabling Debug Mode in WordPress
+                        define( 'WP_DEBUG', true );
+                        define( 'WP_DEBUG_LOG', true );
+                        </code></pre>
+                    <p>By mastering WordPress debugging tools and techniques, users can ensure optimal performance, security, and functionality of their WordPress websites.</p>
+                </div>
+            </section>
+
+            <section class="collapsible" id="debug-mode">
+                <h1>Enabling Debug Mode in WordPress</h1>
+                <div class="content">
+                    <hr>
+                    <h2>Using WP_DEBUG and WP_DEBUG_LOG</h2>
+                    <p>Enable debug mode in WordPress to display PHP errors, notices, and warnings. Configure WP_DEBUG_LOG to log errors to a file for detailed troubleshooting. Learn how to set up and utilize debug mode effectively to identify and fix WordPress-related issues.</p>
+                    <pre><code># Example: Enabling Debug Mode and WP_DEBUG_LOG
+                        define( 'WP_DEBUG', true );
+                        define( 'WP_DEBUG_LOG', true );
+                        </code></pre>
+                </div>
+            </section>
+
+            <section class="collapsible" id="common-errors">
+                <h1>Common WordPress Errors and Solutions</h1>
+                <div class="content">
+                    <hr>
+                    <h2>Troubleshooting Common WordPress Errors</h2>
+                    <p>Address common WordPress errors such as white screen of death, database connection issues, HTTP errors, and plugin conflicts. Follow systematic approaches and best practices to diagnose, troubleshoot, and resolve these issues effectively.</p>
+                    <pre><code># Example: Troubleshooting Common WordPress Errors
+                        White Screen of Death (WSOD)
+                        Database Connection Issues
+                        Plugin Conflicts
+                        </code></pre>
+                </div>
+            </section>
+
+            <section class="collapsible" id="plugins-themes">
+                <h1>Debugging Plugins and Themes</h1>
+                <div class="content">
+                    <hr>
+                    <h2>Identifying and Resolving Plugin and Theme Issues</h2>
+                    <p>Debug plugins and themes to identify bugs, conflicts, and performance issues. Use tools like WP_DEBUG, WP_DEBUG_LOG, and WordPress debugging plugins. Apply best practices for debugging custom themes and third-party plugins in WordPress.</p>
+                    <pre><code># Example: Debugging Plugins and Themes
+                        Test plugins and themes in isolation
+                        Review error logs and debug output
+                        </code></pre>
+                </div>
+            </section>
+
+            <section class="collapsible" id="browser-console">
+                <h1>Using Browser Console for Front-end Issues</h1>
+                <div class="content">
+                    <hr>
+                    <h2>Debugging Front-end Issues with Browser Console</h2>
+                    <p>Utilize browser developer tools to inspect HTML elements, debug JavaScript, analyze network requests, monitor performance, and manage cookies and local storage. Use browser console features for real-time debugging and troubleshooting front-end issues in WordPress websites.</p>
+                    <pre><code># Example: Using Browser Console for Front-end Debugging
+                        Inspect Elements
+                        Debug JavaScript
+                        Analyze Network Requests
+                        Monitor Performance
+                        Manage Cookies and Local Storage
+                        </code></pre>
+                </div>
+            </section>
+        </main>
+
+        <aside id="right-sidebar">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search...">
+                <button id="search-button">Search</button>
+            </div>
+            <div id="search-results"></div>
+        </aside>
+    </div>
+    <script src="bundle.js"></script>
+</body>
+
+</html>

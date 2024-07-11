@@ -1,0 +1,170 @@
+{
+  "themes": {
+    "Home": {
+      "description": "Home",
+      "subthemes": {
+        "Index": "Index",
+        "Install": "Installation tipps"
+      }
+    },
+    "CodingFundamentals": {
+      "description": "Coding Fundamentals",
+      "subthemes": {
+        "Variables": "Variables",
+        "DataTypes": "Data Types",
+        "ControlStructures": "Control Structures",
+        "Functions": "Functions",
+        "Recursion": "Recursion",
+        "Algorithms": "Algorithms",
+        "DataStructures": "Data Structures",
+        "OOP": "Object-Oriented Programming",
+        "FunctionalProgramming": "Functional Programming",
+        "ErrorHandling": "Error Handling"
+      }
+    },
+    "FrontendDevelopment": {
+      "description": "Web Development (Frontend)",
+      "subthemes": {
+        "HTML": "HTML",
+        "CSS": "CSS",
+        "JavaScript": "JavaScript",
+        "ResponsiveDesign": "Responsive Design",
+        "Accessibility": "Accessibility",
+        "WebPerformance": "Web Performance",
+        "BrowserCompatibility": "Browser Compatibility",
+        "PWAs": "Progressive Web Apps",
+        "WebAssembly": "WebAssembly",
+        "WebComponents": "Web Components",
+        "Deployment": "Deploy on GitHub Pages"
+      }
+    },
+    "BackendDevelopment": {
+      "description": "Web Development (Backend)",
+      "subthemes": {
+        "ServerSideLanguages": "Server-Side Languages",
+        "Databases": "Databases",
+        "RESTAPIs": "RESTful APIs",
+        "GraphQL": "GraphQL",
+        "Auth": "Authentication & Authorization",
+        "ServerManagement": "Server Management",
+        "WordPress": "WordPress"
+      }
+    },
+    "FrameworksAndLibraries": {
+      "description": "Frameworks and Libraries",
+      "subthemes": {
+        "React": "React",
+        "Angular": "Angular",
+        "Vue": "Vue.js",
+        "NextJS": "Next.js",
+        "Django": "Django",
+        "Flask": "Flask",
+        "ExpressJS": "Express.js",
+        "SpringBoot": "Spring Boot",
+        "Rails": "Ruby on Rails",
+        "Laravel": "Laravel",
+        "VersionControl": "Version Control",
+        "CICD": "CI/CD",
+        "Containerization": "Containerization",
+        "Orchestration": "Orchestration",
+        "IaC": "Infrastructure as Code",
+        "Monitoring": "Monitoring & Logging",
+        "CloudProviders": "Cloud Providers",
+        "LoadBalancing": "Load Balancing",
+        "NetworkSecurity": "Network Security",
+        "BackupRecovery": "Backup & Recovery",
+        "Webpack": "Webpack",
+        "Tailwind": "Tailwind CSS"
+      }
+    },
+    "DevOps": {
+      "description": "DevOps",
+      "subthemes": {
+        "CICD": "CI/CD",
+        "Containerization": "Containerization",
+        "Orchestration": "Orchestration",
+        "IaC": "Infrastructure as Code",
+        "Monitoring": "Monitoring & Logging",
+        "CloudProviders": "Cloud Providers",
+        "LoadBalancing": "Load Balancing",
+        "NetworkSecurity": "Network Security",
+        "BackupRecovery": "Backup & Recovery",
+        "DevSecOps": "DevSecOps"
+      }
+    },
+    "QualityAssurance": {
+      "description": "Quality Assurance",
+      "subthemes": {
+        "UnitTesting": "Unit Testing",
+        "IntegrationTesting": "Integration Testing",
+        "E2ETesting": "End-to-End Testing",
+        "TestAutomation": "Test Automation",
+        "PerformanceTesting": "Performance Testing",
+        "SecurityTesting": "Security Testing",
+        "UsabilityTesting": "Usability Testing", 
+        "Debug": "Debug"
+      }
+    },
+    "Security": {
+      "description": "Security",
+      "subthemes": {
+        "SecurityBestPractices": "Security Best Practices",
+        "OWASP": "OWASP Top 10",
+        "Cryptography": "Cryptography",
+        "SecureCoding": "Secure Coding",
+        "PenTesting": "Penetration Testing",
+        "VulnerabilityManagement": "Vulnerability Management",
+        "IAM": "Identity & Access Management",
+        "SecurityMonitoring": "Security Monitoring",
+        "IncidentResponse": "Incident Response",
+        "Compliance": "Compliance & Regulations"
+      }
+    },
+    "MobileDevelopment": {
+      "description": "Mobile Development",
+      "subthemes": {
+        "Android": "Android Development",
+        "iOS": "iOS Development",
+        "CrossPlatform": "Cross-Platform Development",
+        "MobileUIUX": "Mobile UI/UX",
+        "MobilePerformance": "Mobile Performance",
+        "MobileSecurity": "Mobile Security",
+        "ASO": "App Store Optimization",
+        "PushNotifications": "Push Notifications",
+        "MobileDatabases": "Mobile Databases",
+        "MobileTesting": "Mobile Testing"
+      }
+    },
+    "DataScienceAndML": {
+      "description": "Data Science and Machine Learning",
+      "subthemes": {
+        "DataAnalysis": "Data Analysis",
+        "DataVisualization": "Data Visualization",
+        "StatisticalAnalysis": "Statistical Analysis",
+        "MLAlgorithms": "Machine Learning Algorithms",
+        "DeepLearning": "Deep Learning",
+        "NLP": "Natural Language Processing",
+        "DataCleaning": "Data Cleaning",
+        "BigData": "Big Data Technologies",
+        "ModelDeployment": "Model Deployment",
+        "AIEthics": "AI Ethics"
+      }
+    },
+    "SoftSkills": {
+      "description": "Soft Skills",
+      "subthemes": {
+        "Communication": "Communication",
+        "Collaboration": "Collaboration",
+        "ProblemSolving": "Problem-Solving",
+        "TimeManagement": "Time Management",
+        "ProjectManagement": "Project Management",
+        "Agile": "Agile Methodologies",
+        "ContinuousLearning": "Continuous Learning",
+        "Leadership": "Leadership",
+        "Mentoring": "Mentoring",
+        "Networking": "Networking",
+        "Documentation": "Update docs"
+      }
+    }
+  }
+}

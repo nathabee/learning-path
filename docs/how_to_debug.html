@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Overview</title>
+    <meta name="themekey" content="QualityAssurance">
+    <meta name="subthemekey" content="Debug">
+    <meta name="keywords" content="Debug, Quality Assurance, Troubleshooting">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <aside id="sidebar">
+            <nav id="sidebar-nav">
+                <ul id="theme-list">
+                    <!-- Themes will be dynamically added here -->
+                </ul>
+            </nav>
+        </aside>
+
+        <main id="main-content">
+            <header>
+                <h1>Debugging Techniques and Tools Overview</h1>
+            </header>
+
+            <section class="collapsible" id="overview">
+                <h1>Overview</h1>
+                <div class="content">
+                    <hr>
+                    <h2>Presentation</h2>
+                    <p>This document provides an overview of various debugging techniques and tools used in different parts of a full-stack development environment. Debugging is a critical skill for developers to ensure their applications run smoothly and efficiently.</p>
+                    
+                    <h2>History</h2>
+                    <p>Debugging has evolved significantly over the years. From simple print statements to sophisticated integrated development environments (IDEs) and tools, the methods used to troubleshoot and fix code issues have become more advanced.</p>
+                    <pre><code># Example of a simple print debug
+console.log("Debug message");</code></pre>
+                    <p>Modern debugging tools offer a range of functionalities to help developers diagnose issues more effectively.</p>
+                </div>
+            </section>
+
+            <section class="collapsible" id="chrome-debug">
+                <h1>Debug in Google Chrome</h1>
+                <div class="content">
+                    <hr>
+                    <h2>Using Chrome DevTools</h2>
+                    <ul>
+                        <li>Inspecting Elements: Use the Elements panel to examine the HTML and CSS of your web page.</li>
+                        <li>Debugging JavaScript: Set breakpoints and step through your code in the Sources panel.</li>
+                        <li>Network Analysis: Monitor network requests and responses to diagnose performance issues.</li>
+                        <li>Performance Monitoring: Use the Performance panel to profile and analyze your web page's runtime performance.</li>
+                        <li>Handling Cookies and Local Storage: Inspect and manipulate storage using the Application panel.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="collapsible" id="wordpress-debug">
+                <h1>Debug in WordPress</h1>
+                <div class="content">
+                    <hr>
+                    <h2>WordPress Debugging Techniques</h2>
+                    <ul>
+                        <li>Enabling Debug Mode: Add <code>define('WP_DEBUG', true);</code> to your wp-config.php file.</li>
+                        <li>Using WP_DEBUG_LOG: Enable logging by adding <code>define('WP_DEBUG_LOG', true);</code> to your wp-config.php file.</li>
+                        <li>Common Errors and Solutions: Identify and fix common WordPress errors such as the White Screen of Death (WSOD) and plugin conflicts.</li>
+                        <li>Debugging Plugins and Themes: Use tools like Query Monitor to diagnose issues with plugins and themes.</li>
+                        <li>Browser Console Debugging: Use browser developer tools to debug front-end issues in WordPress themes.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="collapsible" id="shell-debug">
+                <h1>Debug in a Shell</h1>
+                <div class="content">
+                    <hr>
+                    <h2>Shell Debugging Techniques</h2>
+                    <ul>
+                        <li>Using <code>bash -x</code> for Debugging: Run your script with <code>bash -x script.sh</code> to trace command execution.</li>
+                        <li>Common Shell Errors: Diagnose and fix common shell script errors such as syntax errors and permission issues.</li>
+                        <li>System Calls with <code>strace</code>: Use <code>strace</code> to trace system calls made by a program.</li>
+                        <li>File Descriptors with <code>lsof</code>: Use <code>lsof</code> to list open files and diagnose file descriptor issues.</li>
+                        <li>Network Debugging: Use tools like <code>netstat</code> and <code>tcpdump</code> to debug network-related issues.</li>
+                        <li>Using <code>gdb</code> for C/C++ Programs: Debug compiled programs with the GNU Debugger.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="collapsible" id="nodejs-debug">
+                <h1>Debug in Node.js</h1>
+                <div class="content">
+                    <hr>
+                    <h2>Node.js Debugging Techniques</h2>
+                    <ul>
+                        <li>Using the Built-in Node.js Debugger: Run your application with <code>node inspect app.js</code> and set breakpoints.</li>
+                        <li>Debugging with Chrome DevTools: Attach Chrome DevTools to your Node.js process for an enhanced debugging experience.</li>
+                        <li>Handling Exceptions and Errors: Use try-catch blocks and error handling middleware in Express.js.</li>
+                        <li>Debugging Asynchronous Code: Use async/await and promise debugging techniques to handle asynchronous operations.</li>
+                        <li>Using Logging Libraries: Implement logging with libraries like Winston or Morgan for better insights.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="collapsible" id="reactjs-debug">
+                <h1>Debug in React.js</h1>
+                <div class="content">
+                    <hr>
+                    <h2>React.js Debugging Techniques</h2>
+                    <ul>
+                        <li>React Developer Tools: Use the React DevTools browser extension to inspect and debug React components.</li>
+                        <li>Debugging Hooks and State: Monitor and debug hooks and state changes in your components.</li>
+                        <li>Handling Prop Errors: Use PropTypes to validate props and catch errors early.</li>
+                        <li>Debugging Performance Issues: Use the Profiler API and DevTools to optimize performance.</li>
+                        <li>Testing Components: Write tests with Jest and React Testing Library to ensure your components work as expected.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="collapsible" id="nextjs-debug">
+                <h1>Debug in Next.js</h1>
+                <div class="content">
+                    <hr>
+                    <h2>Next.js Debugging Techniques</h2>
+                    <ul>
+                        <li>Built-in Debugging Tools: Utilize Next.js' built-in error reporting and debugging features.</li>
+                        <li>Handling Server-Side Rendering Issues: Debug SSR problems with proper logging and monitoring.</li>
+                        <li>Debugging API Routes: Inspect and debug API routes using tools like Postman or Insomnia.</li>
+                        <li>Using <code>next-logger</code>: Implement logging to capture and debug application issues.</li>
+                        <li>Analyzing Build and Bundle Sizes: Use the <code>next-bundle-analyzer</code> plugin to analyze and optimize bundle sizes.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="collapsible" id="restapi-debug">
+                <h1>Debug in a REST API</h1>
+                <div class="content">
+                    <hr>
+                    <h2>REST API Debugging Techniques</h2>
+                    <ul>
+                        <li>Using Postman and Insomnia: Test and debug your API endpoints using these powerful tools.</li>
+                        <li>Analyzing HTTP Status Codes: Understand and handle different HTTP status codes returned by your API.</li>
+                        <li>Debugging Authentication Issues: Diagnose and fix issues related to API authentication and authorization.</li>
+                        <li>Logging Requests and Responses: Implement logging to capture and debug API interactions.</li>
+                        <li>Testing APIs with Automated Tools: Use automated testing frameworks to validate API functionality.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="collapsible" id="database-debug">
+                <h1>Debug in a Database (MySQL/PostgreSQL)</h1>
+                <div class="content">
+                    <hr>
+                    <h2>Database Debugging Techniques</h2>
+                    <ul>
+                        <li>Using SQL Logs: Enable and analyze SQL logs to troubleshoot database queries.</li>
+                        <li>Handling Common SQL Errors: Diagnose and fix common SQL errors like syntax errors and connection issues.</li>
+                        <li>Debugging Performance Issues: Use tools like EXPLAIN to analyze and optimize SQL queries.</li>
+                        <li>Using <code>pg_stat_statements</code>: Monitor and optimize query performance in PostgreSQL.</li>
+                        <li>Debugging Connection Issues: Diagnose and resolve issues related to database connections.</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+
+        <aside id="right-sidebar">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search...">
+                <button id="search-button">Search</button>
+            </div>
+            <div id="search-results"></div>
+        </aside>
+    </div>
+    <script src="bundle.js"></script>
+</body>
+
+</html>

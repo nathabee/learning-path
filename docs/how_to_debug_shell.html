@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debugging Shell Scripts</title>
+    <meta name="themekey" content="QualityAssurance">
+    <meta name="subthemekey" content="Debug">
+    <meta name="keywords" content="Shell Script, Debugging, bash -x, strace, lsof, netstat, tcpdump, gdb">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <aside id="sidebar">
+            <nav id="sidebar-nav">
+                <ul id="theme-list">
+                    <!-- Themes will be dynamically added here -->
+                </ul>
+            </nav>
+        </aside>
+
+        <main id="main-content">
+            <header>
+                <h1>Debugging Shell Scripts</h1>
+            </header>
+
+            <section class="collapsible" id="overview">
+                <h1>Overview</h1>
+                <div class="content">
+                    <hr>
+                    <h2>Presentation</h2>
+                    <p>This document provides a comprehensive guide to debugging shell scripts. It covers various techniques and tools essential for troubleshooting and fixing issues in shell script development.</p>
+
+                    <h2>History</h2>
+                    <p>Shell scripting has been a fundamental part of automating tasks in Unix-like systems. Debugging shell scripts has evolved with the introduction of powerful tools and techniques to streamline development and improve code quality.</p>
+                    <pre><code># Example of a simple bash script
+                        #!/bin/bash
+                        echo "Hello, World!"
+                        </code></pre>
+                    <p>Modern shell script debugging involves using specialized commands and utilities to trace execution, analyze system calls, and debug complex scripts.</p>
+                </div>
+            </section>
+
+            <section class="collapsible" id="bash-x">
+                <h1>Using bash -x for Debugging</h1>
+                <div class="content">
+                    <hr>
+                    <h2>Debugging with bash -x</h2>
+                    <p>Run your shell script with <code>bash -x script.sh</code> to enable debugging mode. This option prints each command before executing it, allowing you to trace the script's execution flow and identify issues.</p>
+                    <pre><code># Example: Debugging a shell script with bash -x
+                        bash -x script.sh
+                        </code></pre>
+                </div>
+            </section>
+
+            <section class="collapsible" id="common-errors">
+                <h1>Common Shell Errors and Solutions</h1>
+                <div class="content">
+                    <hr>
+                    <h2>Handling Common Shell Errors</h2>
+                    <p>Shell scripts often encounter common errors such as syntax errors, permission issues, and command not found errors. Understanding these errors and their solutions is crucial for effective debugging.</p>
+                    <ul>
+                        <li>Syntax Errors: Review the script's syntax and correct any errors using proper syntax.</li>
+                        <li>Permission Issues: Ensure executable permissions are set using <code>chmod +x script.sh</code>.</li>
+                        <li>Command Not Found: Check PATH variables and ensure required commands are accessible.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="collapsible" id="strace-lsof">
+                <h1>Using strace and lsof for System Calls and File Descriptors</h1>
+                <div class="content">
+                    <hr>
+                    <h2>Debugging with strace and lsof</h2>
+                    <p>Use <code>strace</code> to trace system calls made by a program and analyze its interaction with the operating system. Use <code>lsof</code> to list open files and inspect file descriptors used by processes.</p>
+                    <pre><code># Example: Using strace and lsof for debugging
+                        strace -p <pid>     # Trace system calls of a running process
+                        lsof -p <pid>       # List open files of a running process
+                        </code></pre>
+                </div>
+            </section>
+
+            <section class="collapsible" id="network-debug">
+                <h1>Debugging Network Issues with netstat and tcpdump</h1>
+                <div class="content">
+                    <hr>
+                    <h2>Network Debugging Tools</h2>
+                    <p>Use <code>netstat</code> to display network connections, routing tables, and interface statistics. Use <code>tcpdump</code> to capture and analyze network packets, helping diagnose network-related issues.</p>
+                    <pre><code># Example: Using netstat and tcpdump for network debugging
+                        netstat -tulpn       # Display TCP/UDP connections and listening ports
+                        tcpdump -i eth0      # Capture packets on a specific network interface
+                        </code></pre>
+                </div>
+            </section>
+
+            <section class="collapsible" id="gdb-debug">
+                <h1>Using gdb for C/C++ Programs</h1>
+                <div class="content">
+                    <hr>
+                    <h2>Debugging C/C++ Programs with gdb</h2>
+                    <p>Use the GNU Debugger (<code>gdb</code>) to debug compiled C/C++ programs. <code>gdb</code> allows you to set breakpoints, examine variables, and trace program execution, helping you locate and fix bugs in your code.</p>
+                    <pre><code># Example: Debugging a C program with gdb
+                        gcc -g -o program program.c   # Compile with debug symbols
+                        gdb ./program                # Start gdb debugger
+                        break main                    # Set breakpoint at main function
+                        run                          # Run the program
+                        </code></pre>
+                </div>
+            </section>
+        </main>
+
+        <aside id="right-sidebar">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search...">
+                <button id="search-button">Search</button>
+            </div>
+            <div id="search-results"></div>
+        </aside>
+    </div>
+    <script src="bundle.js"></script>
+</body>
+
+</html>
