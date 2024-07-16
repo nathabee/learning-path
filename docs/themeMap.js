@@ -122,4 +122,8 @@ themeMap.get('SoftSkills').set('Leadership', 'Leadership');
 themeMap.get('SoftSkills').set('Mentoring', 'Mentoring');
 themeMap.get('SoftSkills').set('Networking', 'Networking');
 themeMap.get('SoftSkills').set('Documentation', 'Update docs');
+themeMap.set('Projects', new Map());
+themeMap.get('Projects').set('DocIntoHtml', 'Doc Into Html');
+themeMap.set('TEMPLATE__THEMEKEY', new Map());
+themeMap.get('TEMPLATE__THEMEKEY').set('TEMPLATE__SUBTHEMEKEY', 'Template to transform a google doc  Into Html');
 export default themeMap;

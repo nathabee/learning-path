@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document to HTML Converter: Parser</title>
+    <meta name="themekey" content="projects">
+    <meta name="subthemekey" content="DocIntoHtml">
+    <meta name="keywords" content="Test">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header id="header">
+        <div class="container flex-row">
+            <div id="menu-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </div>
+            <h1>Parser Google Doc to HTML with template</h1>
+        </div>
+    </header>
+
+    <div class="container flex-row">
+        <aside id="menu-sidebar">
+            <nav id="menu-sidebar-nav">
+                <ul id="theme-list">
+                    <!-- Themes will be dynamically added here -->
+                </ul>
+            </nav>
+        </aside>
+
+        <main id="main-content">
+            <section class="collapsible" id="file-selection">
+                <h1>File Selection</h1>
+                <div class="content">
+                    <hr>
+                    <div class="container flex-col">
+                        <div>
+                            <label for="css-file">CSS File:</label>
+                            <input type="file" id="css-file" accept=".css">
+                            <span>styles.css</span>
+                        </div>
+                        <div>
+                            <label for="js-file">JS File:</label>
+                            <input type="file" id="js-file" accept=".js">
+                            <span>bundle.js</span>
+                        </div>
+                        <div>
+                            <label for="google-doc-file">Google Doc (HTML File):</label>
+                            <input type="file" id="google-doc-file" accept=".html">
+                            <span>google-doc-original.html</span>
+                        </div>
+                        <div>
+                            <label for="template-file">Template File:</label>
+                            <input type="file" id="template-file" accept=".html">
+                            <span>projects_DocIntoHtml_template.html</span>
+                        </div>
+                    </div>
+
+            </section>
+            <section class="collapsible" id="read-google-doc">
+                <h1>Step 1: Read Google Doc File</h1>
+                <div class="content">
+                    <!--button id="read-google-doc" class="collapsible button">Step 1: Read Google Doc File</button-->
+
+                    <div class="content">
+                        <label for="google-doc-body">Google Doc Body:</label>
+                        <textarea id="google-doc-body" rows="10" cols="50" readonly></textarea>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="bundle.js"></script>
+</body>
+
+</html>

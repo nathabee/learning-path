@@ -9,8 +9,10 @@ body {
 }
 
 .container {
-    @apply  rounded-lg shadow-lg flex ml-4     flex-row items-center justify-between;
+    @apply  rounded-lg shadow-lg flex ml-4       ;
 }
+
+ 
 
 #sidebar {
     @apply w-64 bg-primary-color-light p-4 rounded-lg;
@@ -75,7 +77,7 @@ h2 {
 }
 
 .search-container {
-    @apply flex mb-4;
+    @apply flex mb-4 sticky top-20;
 }
 
 #search-input {
@@ -87,7 +89,7 @@ h2 {
 }
 
 #search-results {
-    @apply bg-tertiary-color-light border max-h-96 overflow-y-auto;
+    @apply bg-tertiary-color-light border max-h-96 overflow-y-auto  ;
 }
 
 .highlight {
@@ -117,6 +119,13 @@ h2 {
 .active-link {
     @apply font-bold text-tertiary-color bg-highlight-color;
 }
+
+/* Button styles */
+ 
+.button {
+    @apply bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700;
+}
+
 
 /* Responsive classes */
 @media (max-width: 768px) {

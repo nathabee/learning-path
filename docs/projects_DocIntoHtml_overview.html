@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transforming Google Doc into HTML Posts</title>  
+    <meta name="themekey" content="Projects">
+    <meta name="subthemekey" content="DocIntoHtml">
+    <meta name="keywords" content="Google Docs API, HTML, JavaScript, Automation"> 
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header id="header">
+        <div class="container flex-row">
+            <div id="menu-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </div>
+            <h1>Transforming Google Doc into HTML Posts</h1>
+        </div>
+    </header>
+
+    <div class="container flex-row">
+        <aside id="menu-sidebar">
+            <nav id="menu-sidebar-nav">
+                <ul id="theme-list">
+                    <!-- Themes will be dynamically added here -->
+                </ul>
+            </nav>
+        </aside>
+
+        <main id="main-content"> 
+
+            <section class="collapsible" id="overview">
+                <h1>Overview</h1>
+                <div class="content">
+                    <hr>
+                    <h2>Presentation</h2>
+                    <p>This document describes the process of transforming a Google Doc into multiple HTML posts using the Google Docs API and JavaScript. The goal is to automate the creation of structured and templated HTML files from a single Google Doc.</p>
+                    
+                    <h2>Step-by-Step Process</h2>
+                    <ol>
+                        <li><strong>Setup Google Docs API:</strong> Enable the Google Docs API in your Google Cloud project and obtain the necessary credentials (API key or OAuth 2.0 client ID).</li>
+                        <li><strong>Fetch Document Content:</strong> Use the Google Docs API to fetch the content of the Google Doc in JSON format.</li>
+                        <li><strong>Parse and Segment Content:</strong> Parse the JSON response to identify different sections of the document (e.g., headings, paragraphs).</li>
+                        <li><strong>Generate HTML:</strong> Create individual HTML files for each identified section using a predefined template.</li>
+                        <li><strong>Editable Content Sections:</strong> Load the generated HTML content into a web-based editor for final adjustments and validation.</li>
+                        <li><strong>Save and Export:</strong> Save the final HTML content and export the individual files for use in your project.</li>
+                    </ol>
+                </div>
+            </section>
+
+            <section class="collapsible" id="setup">
+                <h1>Setup Google Docs API</h1>
+                <div class="content">
+                    <hr>
+                    <h2>Step 1: Enable Google Docs API</h2>
+                    <p>First, you need to enable the Google Docs API in your Google Cloud project:</p>
+                    <ol>
+                        <li>Go to the Google Cloud Console and create a new project (or select an existing project).</li>
+                        <li>Navigate to the API & Services dashboard and click on "Enable APIs and Services".</li>
+                        <li>Search for "Google Docs API" and enable it.</li>
+                        <li>Set up OAuth 2.0 credentials or an API key to authenticate your requests.</li>
+                    </ol>
+                    <pre><code>// Example of fetching document content using Google Docs API and JavaScript
+fetch('https://docs.googleapis.com/v1/documents/DOCUMENT_ID?key=YOUR_API_KEY')
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
+                    </code></pre>
+                </div>
+            </section>
+
+            <section class="collapsible" id="fetch-content">
+                <h1>Fetch Document Content</h1>
+                <div class="content">
+                    <hr>
+                    <h2>Step 2: Fetch Content</h2>
+                    <p>Use the Google Docs API to fetch the content of your Google Doc in JSON format. Replace <code>DOCUMENT_ID</code> and <code>YOUR_API_KEY</code> with your actual document ID and API key.</p>
+                </div>
+            </section>
+
+            <section class="collapsible" id="parse-segment">
+                <h1>Parse and Segment Content</h1>
+                <div class="content">
+                    <hr>
+                    <h2>Step 3: Parse and Segment</h2>
+                    <p>Once you have the document content in JSON format, you need to parse it to identify different sections such as headings and paragraphs. This involves iterating through the document structure and extracting relevant elements.</p>
+                </div>
+            </section>
+
+            <section class="collapsible" id="generate-html">
+                <h1>Generate HTML</h1>
+                <div class="content">
+                    <hr>
+                    <h2>Step 4: Generate HTML</h2>
+                    <p>Create individual HTML files for each identified section using a predefined template. The template ensures that all files have a consistent structure and style.</p>
+                </div>
+            </section>
+
+            <section class="collapsible" id="edit-content">
+                <h1>Edit and Validate Content</h1>
+                <div class="content">
+                    <hr>
+                    <h2>Step 5: Editable Content Sections</h2>
+                    <p>Load the generated HTML content into a web-based editor to make final adjustments and validate the content. This ensures that all necessary edits are made before saving the final files.</p>
+                </div>
+            </section>
+
+            <section class="collapsible" id="save-export">
+                <h1>Save and Export</h1>
+                <div class="content">
+                    <hr>
+                    <h2>Step 6: Save and Export</h2>
+                    <p>Save the final HTML content and export the individual files for use in your project. This completes the process of transforming a Google Doc into multiple structured HTML posts.</p>
+                </div>
+            </section>
+
+        </main>
+
+        <aside id="right-sidebar">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search...">
+                <button id="search-button">Search</button>
+            </div>
+            <div id="search-results"></div>
+        </aside>
+    </div>
+    <script src="bundle.js"></script>
+</body>
+
+</html>

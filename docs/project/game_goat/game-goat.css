@@ -1,0 +1,131 @@
+/* game-goat.css */
+
+/* confetti animation */
+
+
+@keyframes confetti {
+    0% { transform: translateY(0) rotate(0); }
+    100% { transform: translateY(1000px) rotate(360deg); }
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #e6ac00;
+    box-shadow: 1px 1px 5px #f3e9d2, -1px -1px 5px #f3e9d2;
+    animation: confetti 7s ease-out;
+    animation-fill-mode: forwards;
+}
+ 
+ 
+
+#gameBoard {
+    display: grid;
+    grid-template-columns: repeat(10, 50px);
+    grid-template-rows: repeat(10, 50px);
+    gap: 2px;
+    margin-bottom: 20px;
+}
+.field {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #000;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 50px;
+}
+.goat {
+    background-color: #FFD700;
+}
+.cabbage {
+    background-color: #228B22;
+}
+.farmer {
+    background-color: #FF0000;
+}
+.snake {
+    background-color: #8B0000;
+}
+#controls {
+    display: grid;
+    grid-template-columns: repeat(3, 50px);
+    grid-template-rows: repeat(3, 50px);
+    gap: 2px;
+}
+.control-button {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+#motivation {
+    margin-bottom: 20px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+#gameTitle1, #gameTitle2 {
+    text-align: center;
+}
+
+
+
+@keyframes confetti {
+    0% { transform: translateY(0) rotate(0); }
+    100% { transform: translateY(500px) rotate(360deg); }
+}
+
+#motivation {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#gameBoard {
+    width: 60%; /* Default width for medium/large screens */
+    max-width: 1000px; /* Maximum width for large screens */
+    height: 500px; /* Fixed height */
+    /*border: 2px solid #333;*/
+    margin: 20px 0;
+}
+
+#controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%; /* Default width for medium/large screens */
+    max-width: 1000px; /* Maximum width for large screens */
+    margin-bottom: 20px;
+}
+
+.control-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.control-button:hover {
+    background-color: #f0f0f0;
+}
+
+@media (max-width: 768px) {
+    /* Adjust for small screens (e.g., smartphones) */
+    #gameBoard, #controls {
+        width: 90%;
+    }
+}

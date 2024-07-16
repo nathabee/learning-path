@@ -5,6 +5,7 @@
 
 # Repository to ignore
 ignore
+google-doc
 
 # Repository that are not finalized and should be ignored
 angular 

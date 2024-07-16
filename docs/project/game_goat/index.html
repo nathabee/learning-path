@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ziege will Kohl essen</title>
+ <link rel="stylesheet" href="game-goat.css"> 
+</head>
+<body> 
+    <h1 id="gameTitle1"></h1>
+    <h1 id="gameTitle2"></h1>
+
+
+    <!-- Confetti container -->
+    <div id="confettiContainer"></div>
+
+    <!-- Audio element for boo sound -->
+    <audio id="booSound">
+        <source src="boo-6377.mp3" type="audio/mpeg">
+        <!-- boo sound from pixabay licence free-->
+        Your browser does not support the audio element.
+    </audio>
+
+
+    <audio id="applauseSound">
+        <source src="short-crowd-cheer-6713.mp3" type="audio/mpeg">
+        <!-- boo sound from pixabay licence free-->
+        Your browser does not support the audio element.
+    </audio>
+
+    <div id="motivation">Motivation: 50</div>
+
+
+    <div id="gameBoard"></div>
+    <div id="controls">
+        <div></div>
+        <div class="control-button" onclick="moveGoat('up')">
+            <svg width="24" height="24" viewBox="0 0 24 24">
+                <path d="M12 2l-10 18h20z"/>
+            </svg>
+        </div>
+        <div></div>
+        <div class="control-button" onclick="moveGoat('left')">
+            <svg width="24" height="24" viewBox="0 0 24 24">
+                <path d="M2 12l18-10v20z"/>
+            </svg>
+        </div>
+        <div></div>
+        <div class="control-button" onclick="moveGoat('right')">
+            <svg width="24" height="24" viewBox="0 0 24 24">
+                <path d="M22 12l-18 10v-20z"/>
+            </svg>
+        </div>
+        <div></div>
+        <div class="control-button" onclick="moveGoat('down')">
+            <svg width="24" height="24" viewBox="0 0 24 24">
+                <path d="M12 22l-10-18h20z"/>
+            </svg>
+        </div>
+        <div></div>
+    </div>
+
+
+    <script src="game-goat.js"></script>
+</body>
+</html>

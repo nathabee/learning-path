@@ -169,6 +169,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     /**************************************************** */
     // Initialize collapsible sections
+    
     var coll = document.querySelectorAll('.collapsible');
     coll.forEach(function (item) {
         item.addEventListener('click', function () {
@@ -181,6 +182,19 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
+    /*
+    var coll = document.querySelectorAll('.collapsible');
+    coll.forEach(function (item) {
+        item.addEventListener('click', function () {
+            this.classList.toggle('active');
+            var content = this.nextElementSibling;  // Adjust to next sibling
+            if (content.style.display === 'block') {
+                content.style.display = 'none';
+            } else {
+                content.style.display = 'block';
+            }
+        });
+    });*/
  
 
     /**************************************************** */
@@ -292,4 +306,51 @@ document.addEventListener('DOMContentLoaded', function () {
   }
       });  
 
- 
+     /**************************************************** */
+     
+  
+  // Check if read-google-doc button exists before adding event listener  
+    
+
+  const readGoogleDocButton = document.getElementById('read-google-doc');
+  if (readGoogleDocButton) {
+      readGoogleDocButton.addEventListener('click', function () {
+          const cssFileInput = document.getElementById('css-file');
+          const jsFileInput = document.getElementById('js-file');
+          const googleDocFileInput = document.getElementById('google-doc-file');
+          const templateFileInput = document.getElementById('template-file');
+
+          const cssFile = cssFileInput.files[0] ? cssFileInput.files[0].name : 'styles.css';
+          const jsFile = jsFileInput.files[0] ? jsFileInput.files[0].name : 'bundle.js';
+          const googleDocFile = googleDocFileInput.files[0] ? googleDocFileInput.files[0].name : 'google-doc-original.html';
+          const templateFile = templateFileInput.files[0] ? templateFileInput.files[0].name : 'projects_DocIntoHtml_template.html';
+
+          console.log('CSS File:', cssFile);
+          console.log('JS File:', jsFile);
+          console.log('Google Doc File:', googleDocFile);
+          console.log('Template File:', templateFile);
+
+          if (googleDocFileInput.files.length > 0) {
+              const file = googleDocFileInput.files[0];
+              const reader = new FileReader();
+              
+              reader.onload = function (event) {
+                  const parser = new DOMParser();
+                  const doc = parser.parseFromString(event.target.result, 'text/html');
+                  const bodyContent = doc.body.innerHTML;
+                  const googleDocBody = document.getElementById('google-doc-body');
+                  if (googleDocBody) {
+                      googleDocBody.value = bodyContent;
+                  } else {
+                      console.error('Google Doc Body textarea not found');
+                  }
+              };
+              
+              reader.readAsText(file);
+          } else {
+              alert('Please select a Google Doc HTML file.');
+          }
+      });
+  } else {
+      console.error('Read Google Doc button not found');
+  }

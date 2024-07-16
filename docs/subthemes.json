@@ -166,6 +166,17 @@
         "Networking": "Networking",
         "Documentation": "Update docs"
       }
+    },
+    "Projects": {
+      "description": "My Projects",
+      "subthemes": {
+        "DocIntoHtml": "Doc Into Html" 
+      }
+    },
+    "TEMPLATE__THEMEKEY" : {
+      "subthemes" : {
+        "TEMPLATE__SUBTHEMEKEY" : "Template to transform a google doc  Into Html"
+      }
     }
   }
 }
