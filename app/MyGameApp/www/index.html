@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bee Wants Flower</title> 
+    <link rel="stylesheet" href="css/game-bee.css">  
+    <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self' data: gap: https://ssl.gstatic.com;
+    script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com;
+    style-src 'self' 'unsafe-inline';
+  ">
+</head>
+<body>
+    <h1 id="gameTitle1"></h1>
+    <h1 id="gameTitle2"></h1>
+
+    <!-- Confetti container -->
+    <div id="confettiContainer"></div>
+
+    <!-- Audio element for boo sound -->
+    <audio id="booSound">
+        <source src="media/boo-6377.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <audio id="applauseSound">
+        <source src="media/short-crowd-cheer-6713.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div class="app">
+        <h1>Scores</h1> 
+            <div id="motivation">Motivation: 50</div>
+            <div id="highestscore">Highest Score: 33</div> 
+    </div>
+    
+
+    <div id="gameBoard"></div>
+    <div id="controls">
+        <div></div>
+        <div class="control-button" id="control-up">
+            <svg width="24" height="24" viewBox="0 0 24 24">
+                <path d="M12 2l-10 18h20z"/>
+            </svg>
+        </div>
+        <div></div>
+        <div class="control-button" id="control-left">
+            <svg width="24" height="24" viewBox="0 0 24 24">
+                <path d="M2 12l18-10v20z"/>
+            </svg>
+        </div>
+        <div></div>
+        <div class="control-button" id="control-right">
+            <svg width="24" height="24" viewBox="0 0 24 24">
+                <path d="M22 12l-18 10v-20z"/>
+            </svg>
+        </div>
+        <div></div>
+        <div class="control-button" id="control-down">
+            <svg width="24" height="24" viewBox="0 0 24 24">
+                <path d="M12 22l-10-18h20z"/>
+            </svg>
+        </div>
+        <div></div>
+    </div>
+    
+    <div id="joystickContainer" style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);"></div>
+
+
+
+    <script src="cordova.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/database.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/nipplejs/0.8.0/nipplejs.min.js"></script>
+    <script src="js/game-bee.js"></script> 
+
+</body>
+</html>

@@ -9,7 +9,7 @@ google-doc
 
 # Repository that are not finalized and should be ignored
 angular 
-app
+# app  ... not ignored anymore
 django
 next-js
 python
